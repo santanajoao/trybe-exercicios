@@ -3,11 +3,11 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 
 ## Fundamentos do Desenvolvimento Web :construction:
 
-### Bloco 01: :penguin: Unix, Bash & Shell :white_check_mark:
+### Bloco 01: :penguin: Unix, Bash & Shell :heavy_check_mark:
 - [X] 1.1 - Unix, Shell & Bash
 - [X] 1.2 - Unix & Bash
 
-### Bloco 02: :globe_with_meridians: Git, GitHub e Internet :white_check_mark:
+### Bloco 02: :globe_with_meridians: Git, GitHub e Internet :heavy_check_mark:
 - [X] 2.1 - Git
 - [X] 2.2 - Git & GitHub
 - [X] 2.3 - Internet
@@ -19,5 +19,5 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [ ] 3.4 - HTML Semântico
 
 ## Legenda
-- :white_check_mark: - Concluído
+- :heavy_check_mark: - Concluído
 - :construction: - Em progresso
