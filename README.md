@@ -15,7 +15,7 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 ### [Bloco 03](./fundamentos/bloco-03-introducao-html-css/): :page_facing_up: Introdução à HTML & CSS :construction:
 - [X] 3.1 - Estruturas de página
 - [X] 3.2 - Primeiros passos em CSS
-- [ ] 3.3 - Seletores e posicionamento
+- [X] 3.3 - Seletores e posicionamento
 - [ ] 3.4 - HTML Semântico
 
 ## Legenda
