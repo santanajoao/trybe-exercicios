@@ -46,6 +46,10 @@ div:nth-of-type(4) h3 {
 div:nth-of-type(5) h3 {
   color: green;
 }
+
 /* Faça a terceira div ser maior que as demais. */
+div:nth-of-type(3) {
+  height: 60px;
+}
 
 /* Deixe as tags ímpares h3 com o texto em itálico. */
