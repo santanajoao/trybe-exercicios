@@ -10,3 +10,7 @@
 /* Adicione uma lista não ordenada com, pelo menos, 3 características que você gosta. */
 
 /* No 'style.css', adicione a propriedade 'list-style: none' para ambas as listas. */
+
+h1, p {
+  text-align: center;
+}
