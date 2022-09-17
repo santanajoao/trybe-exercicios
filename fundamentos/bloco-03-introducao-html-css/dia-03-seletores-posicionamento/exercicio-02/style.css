@@ -14,8 +14,7 @@
 
 /* Posicione o balão para que se torne uma fala de Bowser. */
 .baloon {
-  left: 210px;
-  top: 150px;
+  inset: 150px 0px 0px 210px;
   position: absolute;
   z-index: 1;
 }
@@ -28,7 +27,7 @@
 }
 
 .bowser {
+  inset: 340px 0 0 500px;
   position: absolute;
   width: 200px;
-  inset: 340px 0 0 500px;
 }
