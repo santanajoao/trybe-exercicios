@@ -18,3 +18,7 @@ h1, p {
 ol:hover {
   background-color: yellowgreen;
 }
+
+li:active {
+  font-family: Arial, Helvetica, sans-serif;
+}
