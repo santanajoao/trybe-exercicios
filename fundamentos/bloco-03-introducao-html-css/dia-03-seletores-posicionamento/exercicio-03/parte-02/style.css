@@ -27,6 +27,25 @@ div:nth-of-type(5) {
 }
 /* Estilize cada uma das tags h3. */
 
+div:nth-of-type(1) h3 {
+  color: orange;
+}
+
+div:nth-of-type(2) h3 {
+  color: yellow;
+}
+
+div:nth-of-type(3) h3 {
+  color: blue;
+}
+
+div:nth-of-type(4) h3 {
+  color: white;
+}
+
+div:nth-of-type(5) h3 {
+  color: green;
+}
 /* Faça a terceira div ser maior que as demais. */
 
 /* Deixe as tags ímpares h3 com o texto em itálico. */
