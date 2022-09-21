@@ -12,11 +12,17 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 2.2 - Git & GitHub
 - [X] 2.3 - Internet
 
-### [Bloco 03](./fundamentos/bloco-03-introducao-html-css/): :page_facing_up: Introdução à HTML & CSS :construction:
+### [Bloco 03](./fundamentos/bloco-03-introducao-html-css/): :page_facing_up: Introdução à HTML & CSS :heavy_check_mark:
 - [X] 3.1 - Estruturas de página
 - [X] 3.2 - Primeiros passos em CSS
 - [X] 3.3 - Seletores e posicionamento
-- [ ] 3.4 - HTML Semântico
+- [X] 3.4 - HTML Semântico
+
+### Bloco 04: :page_facing_up: Introdução à JavaScript :construction:
+- [ ] 4.1 - Primeiros passos
+- [ ] 4.2 - Array e Loop For
+- [ ] 4.3 - Lógica de Programação e Algoritimos
+- [ ] 4.4 - Objetos e Funções
 
 ## Legenda
 - :heavy_check_mark: - Concluído
