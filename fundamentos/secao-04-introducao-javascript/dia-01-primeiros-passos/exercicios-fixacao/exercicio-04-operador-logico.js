@@ -8,6 +8,6 @@ if (currentHour >= 22) {
 } else if (currentHour >= 14 && currentHour < 18) {
   message = "Vamos fazer um bolo pro café da tarde?";
 } else if (currentHour > 4 && currentHour < 11) {
-  message = "Hmmm, cheiro de café recém passado."
+  message = "Hmmm, cheiro de café recém passado.";
 }
-console.log(message)
+console.log(message);
