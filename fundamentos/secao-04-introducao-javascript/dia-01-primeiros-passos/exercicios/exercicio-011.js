@@ -1,3 +1,5 @@
+/* Utilize if/else para fazer um programa que converta uma nota
+dada em porcentagem em conceitos de A a F. */
 const percentualGrade = 87;
 
 if (percentualGrade >= 90) {

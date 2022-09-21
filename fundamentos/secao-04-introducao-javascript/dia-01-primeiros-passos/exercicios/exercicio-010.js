@@ -1,3 +1,5 @@
+/* Utilize switch/case para fazer um programa que receba o nome de
+uma peça de xadrez e retorne os movimentos que ela faz. */
 const chessPiece = 'RaInHa';
 
 switch (chessPiece.toLowerCase()) {

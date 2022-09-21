@@ -1,3 +1,5 @@
+/* Utilize if/else para fazer um programa que retorne o maior de
+três números. */
 const numberA = 82;
 const numberB = 23;
 const numberC = 34;

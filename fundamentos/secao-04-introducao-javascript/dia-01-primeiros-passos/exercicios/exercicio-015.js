@@ -1,3 +1,5 @@
+/* Utilize if/else para fazer um programa que, dado um salário
+bruto, calcule o líquido a ser recebido. */
 const salario = 3000;
 let rendaTax = 0;
 let rendaParcel = 0;

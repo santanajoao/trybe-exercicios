@@ -1,3 +1,6 @@
+/* Utilize if/else para fazer um programa que defina três números
+e retorne true se pelo menos uma das três for ímpar. Caso
+contrário, false. */
 const numberA = 2;
 const numberB = 4;
 const numberC = 1;
