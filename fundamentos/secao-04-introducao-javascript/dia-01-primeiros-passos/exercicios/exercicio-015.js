@@ -31,6 +31,6 @@ if (salarioBase >= 4664.68) {
   rendaParcel = 142.8;
 }
 
-salarioLiquido = salarioBase * (1 - 1 * rendaTax) + rendaParcel;
+salarioLiquido = salarioBase - (salarioBase * rendaTax - rendaParcel);
 
 console.log(salarioLiquido);
