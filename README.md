@@ -18,7 +18,7 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 3.3 - Seletores e posicionamento
 - [X] 3.4 - HTML Semântico
 
-### Seção 04: :page_facing_up: Introdução à JavaScript :construction:
+### Seção 04: :gear: Introdução à JavaScript :construction:
 - [X] 4.1 - Primeiros passos
 - [ ] 4.2 - Array e Loop For
 - [ ] 4.3 - Lógica de Programação e Algoritimos
