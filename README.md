@@ -20,7 +20,7 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 
 ### [Seção 04](./fundamentos/secao-04-introducao-javascript/): :gear: Introdução à JavaScript :construction:
 - [X] 4.1 - Primeiros passos
-- [ ] 4.2 - Array e Loop For
+- [X] 4.2 - Array e Loop For
 - [ ] 4.3 - Lógica de Programação e Algoritimos
 - [ ] 4.4 - Objetos e Funções
 
