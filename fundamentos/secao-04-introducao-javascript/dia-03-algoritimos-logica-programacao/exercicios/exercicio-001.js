@@ -1,4 +1,6 @@
-const fatorialDe = 4;
+const fatorialDe = 10;
+
+// Escreva um algoritmo que imprima o fatorial de um número
 const numeroPositivo = fatorialDe >= 0;
 let resultadoFatorial = 1;
 
