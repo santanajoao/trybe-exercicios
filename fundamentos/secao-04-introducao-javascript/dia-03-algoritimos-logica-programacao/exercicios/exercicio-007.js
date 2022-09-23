@@ -1,4 +1,4 @@
-const n = 2;
+const n = 5;
 const nMaiorZero = n > 0;
 let linha = '';
 
