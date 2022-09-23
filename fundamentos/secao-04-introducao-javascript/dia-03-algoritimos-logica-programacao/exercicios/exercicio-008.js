@@ -1,13 +1,14 @@
 const n = 5;
 
-for (let linhaImpressa = 1; linhaImpressa <= n; linhaImpressa += 1) {
-  let linha = '';
-  for (let caractereLinha = 1; caractereLinha <= n; caractereLinha += 1) {
-    if (caractereLinha <= n - linhaImpressa) {
-      linha += ' ';
+for (let linhaAtual = 1; linhaAtual <= n; linhaAtual += 1) {
+  let representacaoLinha = '';
+
+  for (let indiceCaractere = 0; indiceCaractere < n; indiceCaractere += 1) {
+    if (indiceCaractere < n-linhaAtual) {
+      representacaoLinha += ' ';
     } else {
-      linha += '*';
+      representacaoLinha += '*';
     }
   }
-  console.log(linha);
+  console.log(representacaoLinha);
 }
