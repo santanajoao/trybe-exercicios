@@ -1,4 +1,4 @@
-const n = 5;
+const n = 200;
 
 for (let numeroCaracteres = 1; numeroCaracteres <= n; numeroCaracteres += 2) {
   let representacaoLinha = '';
