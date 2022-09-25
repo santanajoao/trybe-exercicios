@@ -8,4 +8,5 @@ function maior(a, b) {
   return b;
 }
 
+
 console.log(maior(a, b));

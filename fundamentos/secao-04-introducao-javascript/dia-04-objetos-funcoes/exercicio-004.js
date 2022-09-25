@@ -1,3 +1,6 @@
+const a = 21;
+const b = 7;
+
 function soma(a, b) {
   return a + b;
 }
@@ -18,8 +21,6 @@ function restoDivisao(a, b) {
   return a % b;
 }
 
-const a = 21;
-const b = 7;
 
 console.log(soma(a, b));
 console.log(subtrai(a, b));
