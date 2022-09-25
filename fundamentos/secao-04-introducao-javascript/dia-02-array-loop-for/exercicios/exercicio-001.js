@@ -34,8 +34,8 @@ console.log('Soma dos elementos:', arrayValueSum);
 mediaAritimetica = arrayValueSum / numbers.length;
 console.log('Média Aritimética:', mediaAritimetica);
 
-/* caso a media seja maior que vinte, imprima "valor maior que 20".
-caso não, imprima "valor menor ou igual a 20" */
+// caso a media seja maior que vinte, imprima "valor maior que 20"
+// caso não, imprima "valor menor ou igual a 20"
 if (mediaAritimetica > 20) {
   console.log('valor maior que 20');
 } else {
@@ -45,8 +45,8 @@ if (mediaAritimetica > 20) {
 // imprima o maior valor do array
 console.log('Maior valor:', greaterValue);
 
-/* descubra quantos valores ímpares existem no array.
-caso não exista, imprima "nenhum valor impar encontrado */
+// descubra quantos valores ímpares existem no array. caso não exista, imprima
+//"nenhum valor impar encontrado
 if (numberOfOdd === 0) {
   console.log('nenhum valor ímpar encontrado');
 } else {

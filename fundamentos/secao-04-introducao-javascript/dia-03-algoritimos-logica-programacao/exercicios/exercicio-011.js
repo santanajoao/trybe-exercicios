@@ -5,7 +5,8 @@ let numeroDivisores = 0;
 // apenas para números positivos
 if (numeroPositivo) {
 
-  // checa se o número é divisível por todos os números no intervalo de 0 até o próprio número  
+  // checa se o número é divisível por todos os números no intervalo de
+  // 0 até o próprio número  
   for (let divisor = 1; divisor <= numeroChecado; divisor += 1) {
     if (numeroChecado % divisor === 0) {
       numeroDivisores += 1;
