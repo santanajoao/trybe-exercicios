@@ -7,7 +7,8 @@ let info = {
 // Imprima no console uma mensagem de boas-vindas para a personagem acima
 console.log('Bem vinda,', info.personagem);
 
-// Insira e imprima uma nova propriedade com o nome de chave ‘recorrente’ e o valor ‘Sim’
+// Insira e imprima uma nova propriedade com o nome de chave ‘recorrente’ e
+// o valor ‘Sim’
 info['recorrente'] = 'Sim';
 console.table(info);
 

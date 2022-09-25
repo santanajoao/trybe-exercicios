@@ -1,4 +1,4 @@
-// Crie uma variável player e atribua um objeto contendo as variáveis listadas abaixo:
+// Crie uma variável player e atribua um objeto contendo as variáveis listadas
 
 let player = {
   name: 'Marta',
