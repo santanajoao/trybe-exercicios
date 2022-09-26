@@ -1,4 +1,6 @@
-function fimIgual(palavra, fim) {
+// crie uma funcao que receba duas strings e checa 
+// se a segunda string é o final da primeira
+function verificaFimPalavra(palavra, fim) {
   let indicePalavra = palavra.length - 1;
   let indiceFim = fim.length - 1;
   while (indiceFim >= 0) {

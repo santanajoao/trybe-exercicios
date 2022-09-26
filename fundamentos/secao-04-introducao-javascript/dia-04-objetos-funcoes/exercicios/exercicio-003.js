@@ -1,3 +1,4 @@
+// Crie uma função que receba uma string e indique se é ou não palíndromo
 function palindromo(string) {
   const comprimento = string.length;
   const indiceMeio = Math.floor(comprimento / 2);
