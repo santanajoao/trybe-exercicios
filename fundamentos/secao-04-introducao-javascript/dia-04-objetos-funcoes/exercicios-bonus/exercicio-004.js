@@ -29,7 +29,7 @@ const moradores = {
   ],
 };
 
-// acesse as chaves do último morador e imprima no seguinte formato
+// Acesse as chaves do último morador e imprima no seguinte formato
 // “O morador do bloco 2 de nome Zoey Brooks mora no 1° andar, apartamento 101”.
 const blocoDois = moradores.blocoDois
 const ultimoMorador = blocoDois[blocoDois.length-1]

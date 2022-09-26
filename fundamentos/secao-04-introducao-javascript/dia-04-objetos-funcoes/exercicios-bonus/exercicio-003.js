@@ -17,6 +17,10 @@ const basket = [
   'Pera', 'Melancia', 'Jaca', 'Banana', 'Laranja', 'Jaca',
   'Banana', 'Pera', 'Abacate', 'Uva',
 ];
+
+// Retorne um objeto que contenha o nome da fruta como chave e a quantidade de 
+// vezes que ela aparece no array como valor
+
 let quantidade = {};
 let stringImpressa = 'Sua cesta possui: ';
 
@@ -32,7 +36,8 @@ function recorrencia(lista) {
   return frutaRecorrencia;
 }
 
-
+// Imprima esse resultado na tela com uma mensagem no seguinte formato:
+// Sua cesta possui: x Melancias, x Abacates
 quantidade = recorrencia(basket);
 for (fruta in quantidade) {
   if (stringImpressa !== 'Sua cesta possui: ') {

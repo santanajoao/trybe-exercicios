@@ -1,4 +1,6 @@
 function numerosRomanos(numeroRomano) {
+  // Faça um programa que receba uma string em algarismos romanos e
+  // retorne o número que a string representa.
   const valores = {
     'I': 1,
     'V': 5,
