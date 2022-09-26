@@ -1,9 +1,9 @@
 function maiorNumero(numeros) {
-  let maior;
+  let indexMaior;
   for (index in numeros) {
-    if (!maior || numeros[index] > maior) {
-      maior = numeros[index];
+    if (!indexMaior || numeros[index] > numeros[indexMaior]) {
+      indexMaior = index;
     } 
   }
-  return maior;
+  return indexMaior;
 }
