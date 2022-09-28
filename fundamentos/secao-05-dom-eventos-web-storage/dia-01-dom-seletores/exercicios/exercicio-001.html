@@ -77,8 +77,13 @@
       function paragrafoMaiusculo() {
         const primeiroParagrafo =  document.getElementsByTagName('p')[0];
         primeiroParagrafo.innerText = primeiroParagrafo.innerText.toUpperCase();
-        
-        
+      }
+
+      function conteudoParagrafos() {
+        const paragrafos = document.getElementsByTagName('p');
+        for (const paragrafo of paragrafos) {
+          console.log(paragrafo.innerText);
+        }
       }
 
       alteraParagrafos('como eu me vejo daqui a dois anos');
@@ -86,6 +91,7 @@
       alteraFundoClasse('center-content', 'white');
       corrigeTitulo();
       paragrafoMaiusculo();
+      conteudoParagrafos();
 
     </script>
   </body>
