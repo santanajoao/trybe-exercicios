@@ -18,11 +18,17 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 3.3 - Seletores e posicionamento
 - [X] 3.4 - HTML Semântico
 
-### [Seção 04](./fundamentos/secao-04-introducao-javascript/): :gear: Introdução à JavaScript :construction:
+### [Seção 04](./fundamentos/secao-04-introducao-javascript/): :gear: Introdução à JavaScript :heavy_check_mark:
 - [X] 4.1 - Primeiros passos
 - [X] 4.2 - Array e Loop For
 - [X] 4.3 - Lógica de Programação e Algoritimos
-- [ ] 4.4 - Objetos e Funções
+- [X] 4.4 - Objetos e Funções
+
+### [Seção 05](./fundamentos/secao-05-dom-eventos-web-storage/dia-01-dom-seletores): DOM, Eventos e Web Storage :construction:
+- [X] 5.1 - DOM e Seletores
+- [ ] 5.2 - Trabalhando com elementos
+- [ ] 5.3 - Eventos
+- [ ] 5.4 - Web Storage
 
 ## Legenda
 - :heavy_check_mark: - Concluído
