@@ -1,4 +1,4 @@
-let info = {
+const info = {
   personagem: 'Margarida',
   origem: 'Pato Donald',
   nota: 'Namorada do personagem principal nos quadrinhos do Pato Donald',
@@ -23,7 +23,7 @@ for (key in info) {
 }
 
 // Defina um objeto com as mesmas chaves e imprima os valores de cada objeto juntos
-let info2 = {
+const info2 = {
   personagem: 'Tio Patinhas',
   origem: 'Christmas on Bear Mountain, Dell’s Four Color Comics #178',
   nota: 'O último MacPatinhas',

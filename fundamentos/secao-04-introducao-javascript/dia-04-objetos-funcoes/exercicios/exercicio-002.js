@@ -1,4 +1,4 @@
-let leitor = {
+const leitor = {
   nome: 'Julia',
   sobrenome: 'Pessoa',
   idade: 21,

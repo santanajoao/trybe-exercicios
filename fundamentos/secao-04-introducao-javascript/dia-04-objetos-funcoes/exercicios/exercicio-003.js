@@ -9,3 +9,8 @@ function palindromo(string) {
   }
   return true;
 }
+
+function palindromo2(string) {
+  stringInvertida = string.split().reverse().join();
+  return (string === stringInvertida);
+}
