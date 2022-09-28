@@ -5,13 +5,15 @@
       <h2 id="page-title">Título</h2>
 
       <!-- Adicione uma classe igual para os dois parágrafos -->
-      <p id="paragraph" class="paragraph">Dê uma cor para este parágrafo!</p>
+      <p id="paragraph" class="paragraphs">Dê uma cor para este parágrafo!</p>
       <h4 id="subtitle">Subtítulo</h4>
-      <p id="second-paragraph" class="paragraph">Segundo parágrafo!</p>
+      <p id="second-paragraph" class="paragraphs">Segundo parágrafo!</p>
     </header>
     <script>
       const paragraph = document.getElementById("paragraph");
       paragraph.style.color = "red";
+
+      const paragraphs = document.getElementsByClassName('paragraphs');
     </script>
   </body>
 </html>
