@@ -57,13 +57,21 @@
 
       function alteraParagrafos(novoCounteudo) {
         const paragrafos = document.getElementsByTagName('p');
-        console.log(paragrafos);
         for (const paragrafo of paragrafos) {
           paragrafo.innerText = novoCounteudo;
         }
       }
 
+      function alteraFundoClasse(classe, cor) {
+        const elementos = document.getElementsByClassName(classe);
+        for (const elemento of elementos) {
+          elemento.style.backgroundColor = cor;
+        }
+      }
+
       alteraParagrafos('teste');
+      alteraFundoClasse('main-content', 'rgb(76,164,109)');
+      
     </script>
   </body>
 </html>
