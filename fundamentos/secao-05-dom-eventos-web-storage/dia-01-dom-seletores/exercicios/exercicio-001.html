@@ -69,9 +69,16 @@
         }
       }
 
+      function corrigeTitulo() {
+        const titulo = document.getElementsByClassName('title')[0];
+        titulo.innerText = 'Exercício - JavaScript';
+      }
+
       alteraParagrafos('teste');
       alteraFundoClasse('main-content', 'rgb(76,164,109)');
-      
+      alteraFundoClasse('center-content', 'white');
+      corrigeTitulo();
+
     </script>
   </body>
 </html>
