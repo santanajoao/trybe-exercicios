@@ -74,10 +74,18 @@
         titulo.innerText = 'Exercício - JavaScript';
       }
 
-      alteraParagrafos('teste');
+      function paragrafoMaiusculo() {
+        const primeiroParagrafo =  document.getElementsByTagName('p')[0];
+        primeiroParagrafo.innerText = primeiroParagrafo.innerText.toUpperCase();
+        
+        
+      }
+
+      alteraParagrafos('como eu me vejo daqui a dois anos');
       alteraFundoClasse('main-content', 'rgb(76,164,109)');
       alteraFundoClasse('center-content', 'white');
       corrigeTitulo();
+      paragrafoMaiusculo();
 
     </script>
   </body>
