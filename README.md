@@ -24,7 +24,7 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 4.3 - Lógica de Programação e Algoritimos
 - [X] 4.4 - Objetos e Funções
 
-### [Seção 05](./fundamentos/secao-05-dom-eventos-web-storage/dia-01-dom-seletores): DOM, Eventos e Web Storage :construction:
+### [Seção 05](./fundamentos/secao-05-dom-eventos-web-storage/): DOM, Eventos e Web Storage :construction:
 - [X] 5.1 - DOM e Seletores
 - [ ] 5.2 - Trabalhando com elementos
 - [ ] 5.3 - Eventos
