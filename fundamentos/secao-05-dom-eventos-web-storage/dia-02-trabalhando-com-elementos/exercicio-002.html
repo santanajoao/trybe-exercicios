@@ -30,7 +30,11 @@
 
     // Crie um filho para primeiroFilhoDoFilho.
     const primeiroFilhoFilho = document.getElementById('primeiroFilhoDoFilho');
-    primeiroFilhoFilho.appendChild(document.createElement('section'));
+    const filho = document.createElement('section');
+    primeiroFilhoFilho.appendChild(filho);
+
+    // A partir desse filho criado, acesse terceiroFilho.
+    const terceiroFilho = filho.parentElement.parentElement.nextElementSibling;
   </script>
 </body>
 </html>
