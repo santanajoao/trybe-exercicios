@@ -91,6 +91,16 @@
       const sectionC = document.createElement('section');
       sectionC.className = 'right-content';
       main.appendChild(sectionC);
+
+      // Adicione uma imagem com src configurado para o valor
+      // https://picsum.photos/200 e classe small-image. Esse
+      // elemento deve ser filho do section criado no passo 5
+      const img = document.createElement('img');
+      img.src = 'https://picsum.photos/200';
+      img.className = 'small-image';
+      sectionA.appendChild(img);
+
+      // 
     </script>
   </body>
 </html>
