@@ -70,15 +70,21 @@
 
       // Adicione a tag section com a classe center-content como
       // filho da tag main
-      const section = document.createElement('section');
-      section.className = 'center-content';
-      main.appendChild(section);
+      const sectionA = document.createElement('section');
+      sectionA.className = 'center-content';
+      main.appendChild(sectionA);
 
       // Adicione a tag p como filho do section criado no passo 3 e
       // coloque algum texto
       const p = document.createElement('p');
       p.innerText = 'Algum texto';
-      section.appendChild(p);
+      sectionA.appendChild(p);
+
+      // Adicione a tag section com a classe left-content como filho da
+      // tag main criada no passo 2;
+      const sectionB = document.createElement('section');
+      sectionB.className = 'left-content';
+      main.appendChild(sectionB);
     </script>
   </body>
 </html>
