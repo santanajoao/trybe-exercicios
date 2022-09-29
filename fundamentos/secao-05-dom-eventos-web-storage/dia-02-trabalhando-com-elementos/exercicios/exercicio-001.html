@@ -57,47 +57,52 @@
   </head>
   <body>
     <script>
+      function createElementWClass(tagName, className) {
+        const element = document.createElement(tagName);
+        element.className = className;
+        return element;
+      }
+
+      function createElementWText(tagName, text) {
+        const element = document.createElement(tagName);
+        element.innerText = text;
+        return element;
+      }
+
       // Adicione a tag h1 com o texto Exercício - JavaScript DOM como
       // filho da tag body
-      const h1 = document.createElement('h1');
-      h1.innerText = 'Exercício - JavaScript DOM';
+      const h1 = createElementWText('h1', 'Exercício - JavaScript DOM');
       document.body.appendChild(h1);
 
       // Adicione a tag main com a classe main-content como filho da tag body
-      const main = document.createElement('main');
-      main.className = 'main-content';
+      const main = createElementWClass('main', 'main-content');
       document.body.appendChild(main);
 
       // Adicione a tag section com a classe center-content como
       // filho da tag main
-      const sectionA = document.createElement('section');
-      sectionA.className = 'center-content';
+      const sectionA = createElementWClass('section', 'center-content');
       main.appendChild(sectionA);
 
       // Adicione a tag p como filho do section criado no passo 3 e
       // coloque algum texto
-      const p = document.createElement('p');
-      p.innerText = 'Algum texto';
+      const p = createElementWText('p', 'Texto muito bonito')
       sectionA.appendChild(p);
 
       // Adicione a tag section com a classe left-content como filho da
       // tag main criada no passo 2;
-      const sectionB = document.createElement('section');
-      sectionB.className = 'left-content';
+      const sectionB = createElementWClass('section', 'letf-content');
       main.appendChild(sectionB);
 
       // Adicione a tag section com a classe right-content como filho da
       // tag main criada no passo 2
-      const sectionC = document.createElement('section');
-      sectionC.className = 'right-content';
+      const sectionC = createElementWClass('section', 'right-content');
       main.appendChild(sectionC);
 
       // Adicione uma imagem com src configurado para o valor
       // https://picsum.photos/200 e classe small-image. Esse
       // elemento deve ser filho do section criado no passo 5
-      const img = document.createElement('img');
+      const img = createElementWClass('img', 'small-image');
       img.src = 'https://picsum.photos/200';
-      img.className = 'small-image';
       sectionB.appendChild(img);
 
       // Adicione uma lista não ordenada com os valores de 1 a 10 por extenso,
@@ -110,8 +115,7 @@
       
       const ul = document.createElement('ul');
       for (numero of numeros) {
-        const li = document.createElement('li');
-        li.innerText = numero;
+        const li = createElementWText('li', numero)
         ul.appendChild(li);
       }
 
@@ -121,8 +125,7 @@
       for (let index = 0; index < 3; index += 1) {
         const texto = numeros[index];
 
-        const h3 = document.createElement('h3');
-        h3.innerText = texto;
+        const h3 = createElementWText('h3', texto)
         main.appendChild(h3);
       }
 
