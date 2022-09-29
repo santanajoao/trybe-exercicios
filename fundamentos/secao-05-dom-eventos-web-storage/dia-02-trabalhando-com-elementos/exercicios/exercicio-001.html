@@ -116,6 +116,14 @@
       }
 
       sectionC.appendChild(ul);
+
+      // Adicione 3 tags h3, todas sendo filhas do main criado no passo 2.
+      for (let index = 0; index < 3; index += 1) {
+        const texto = numeros[index];
+        const h3 = document.createElement('h3');
+        h3.innerText = texto;
+        main.appendChild(h3);
+      }
     </script>
   </body>
 </html>
