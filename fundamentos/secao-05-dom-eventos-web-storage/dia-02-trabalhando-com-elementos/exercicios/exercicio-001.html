@@ -107,11 +107,11 @@
         'um', 'dois', 'três', 'quatro', 'cinco',
         'seis', 'sete', 'oito', 'nove', 'dez',
       ];
+      
       const ul = document.createElement('ul');
       for (numero of numeros) {
         const li = document.createElement('li');
         li.innerText = numero;
-
         ul.appendChild(li);
       }
 
@@ -120,10 +120,14 @@
       // Adicione 3 tags h3, todas sendo filhas do main criado no passo 2.
       for (let index = 0; index < 3; index += 1) {
         const texto = numeros[index];
+
         const h3 = document.createElement('h3');
         h3.innerText = texto;
         main.appendChild(h3);
       }
+
+      // Adicione a classe title na tag h1 criada;
+      h1.className = 'title';
     </script>
   </body>
 </html>
