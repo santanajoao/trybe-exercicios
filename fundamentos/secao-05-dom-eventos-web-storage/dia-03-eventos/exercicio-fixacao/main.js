@@ -40,6 +40,11 @@ function changeLiText() {
 // redirecione para alguma página;
 //  - Que tal redirecionar para seu portfólio?
 
+myWebpage.addEventListener('dblclick', goToPortifolio);
+
+function goToPortifolio() {
+  window.location = 'https://github.com/santanajoao/santanajoao.github.io';
+}
 // - Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
 // a cor do mesmo;
 
