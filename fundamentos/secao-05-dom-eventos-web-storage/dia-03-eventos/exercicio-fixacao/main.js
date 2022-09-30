@@ -11,6 +11,22 @@ const myWebpage = document.getElementById('my-spotrybefy');
 // - Crie uma função que adicione a classe 'tech' ao elemento `li` quando for clicado.
 //  - Deve existir apenas um elemento com a classe 'tech'. Como você faz isso?
 
+// JPSC - Adiciona o eventListener em todos os li.
+const allLi = document.getElementsByTagName('li');
+for (const li of allLi) {
+  li.addEventListener('click', becomeTech);
+}
+
+// JPSC - Adiciona a class "tech" no objeto clicado e remove dos outros
+function becomeTech(object) {
+  for (const li of allLi) {
+    if (li === object.target) {
+      li.className = 'tech';
+    } else {
+      li.className = li.className.replace('tech', ''); 
+    }
+  }
+}
 // - Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
 // com a classe 'tech';
 
