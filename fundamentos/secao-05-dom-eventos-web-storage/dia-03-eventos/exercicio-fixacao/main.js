@@ -27,9 +27,15 @@ function becomeTech(object) {
     }
   }
 }
+
 // - Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
 // com a classe 'tech';
+input.addEventListener('keyup', changeLiText);
 
+function changeLiText() {
+  const targetLi = document.getElementsByClassName('tech')[0];
+  targetLi.innerText = input.value;
+}
 // - Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
 // redirecione para alguma página;
 //  - Que tal redirecionar para seu portfólio?
