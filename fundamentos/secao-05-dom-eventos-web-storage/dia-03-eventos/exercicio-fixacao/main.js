@@ -36,17 +36,29 @@ function changeLiText() {
   const targetLi = document.getElementsByClassName('tech')[0];
   targetLi.innerText = input.value;
 }
+
 // - Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
 // redirecione para alguma página;
 //  - Que tal redirecionar para seu portfólio?
-
 myWebpage.addEventListener('dblclick', goToPortifolio);
 
 function goToPortifolio() {
   window.location = 'https://github.com/santanajoao/santanajoao.github.io';
 }
+
 // - Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
 // a cor do mesmo;
+
+myWebpage.addEventListener('mouseover', changeH3Color);
+myWebpage.addEventListener('mouseleave', initialH3Color)
+
+function changeH3Color() {
+  myWebpage.style.color = 'orange';
+}
+
+function initialH3Color() {
+  myWebpage.style.color = 'white';
+}
 
 // Segue abaixo um exemplo do uso de event.target:
 
