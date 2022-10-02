@@ -37,7 +37,9 @@ function createDaysOfTheMonth() {
     if (holidays.includes(day)) {
       dayLI.className += ' holiday';
     }
-
+    dayLI.addEventListener('mouseover', zoomOnHover);
+    dayLI.addEventListener('mouseleave', zoomOnHover);
+  
     parentUl.appendChild(dayLI);
   }
 }
@@ -48,6 +50,7 @@ function createHolidayButton(text) {
 
   button.innerText = text;
   button.id = 'btn-holiday';
+  button.addEventListener('click', changeHolidaysBgColorOnClick);
   buttonsParent.appendChild(button);
 }
 
@@ -63,18 +66,13 @@ function changeHolidaysBgColorOnClick() {
   }
 }
 
-function addEventListenerOnHolidayBtn() {
-  const holidayButton = document.getElementById('btn-holiday');
-holidayButton.addEventListener('click', changeHolidaysBgColorOnClick);
-}
-
 // 4 - 
 function createFridayButton(text) {
   const button = document.createElement('button');
 
   button.innerText = text;
   button.id = 'btn-friday';
-
+  button.addEventListener('click', changeFridaysTextOnClick);
   buttonsParent.appendChild(button);
 }
 
@@ -94,11 +92,6 @@ function changeFridaysTextOnClick() {
   }
 }
 
-function addEventListenerOnFridayBtn() {
-  const fridayButton = document.getElementById('btn-friday');
-  fridayButton.addEventListener('click', changeFridaysTextOnClick);
-}
-
 // 6 -
 function zoomOnHover(object) {
   const day = object.target
@@ -108,14 +101,6 @@ function zoomOnHover(object) {
   } else {
     day.style.fontSize = '20px';
     day.style.fontWeight = 400;
-  }
-}
-
-function addEventListenerOnMonthDays() {
-  const allDays = document.getElementsByClassName('day');
-  for (day of allDays) {
-    day.addEventListener('mouseover', zoomOnHover);
-    day.addEventListener('mouseleave', zoomOnHover);
   }
 }
 
@@ -157,12 +142,8 @@ createDaysOfTheWeek();
 createDaysOfTheMonth();
 
 createHolidayButton('Feriados');
-addEventListenerOnHolidayBtn();
 
 createFridayButton('Sexta-feira');
-addEventListenerOnFridayBtn();
-
-addEventListenerOnMonthDays();
 
 addTask('Projeto');
 addTaskLabel('green');
