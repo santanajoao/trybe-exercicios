@@ -27,7 +27,7 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 ### [Seção 05](./fundamentos/secao-05-dom-eventos-web-storage/): DOM, Eventos e Web Storage :construction:
 - [X] 5.1 - DOM e Seletores
 - [X] 5.2 - Trabalhando com elementos
-- [ ] 5.3 - Eventos
+- [X] 5.3 - Eventos
 - [ ] 5.4 - Web Storage
 
 ## Legenda
