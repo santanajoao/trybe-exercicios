@@ -159,7 +159,7 @@ function addCompromisso(object) {
   const taskLI = document.createElement('li');
 
   if (validKeys.includes(object.key)) {
-    if (task.value === '') {
+    if (task.value.replace(/ /g, '') === '') {
       window.alert('Campo vazio! Escreva seu compromisso para adicionar.')
     } else {
       taskLI.innerText = task.value;
