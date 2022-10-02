@@ -1,5 +1,5 @@
 // Global variables
-
+const fridays = [4, 11, 18, 25];
 // Fuctions
 
 function createDaysOfTheWeek() {
@@ -21,7 +21,6 @@ function createDaysOfTheMonth() {
     29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
     17, 18, 19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
-  const fridays = [4, 11, 18, 25];
   const holidays = [24, 25, 31];
   const parentUl = document.getElementById('days');
 
@@ -41,7 +40,7 @@ function createDaysOfTheMonth() {
   }
 }
 
-// Crie um botão com o nome Feriados
+// 2 - Crie um botão com o nome Feriados
 function createHolidayButton(text) {
   const parentDiv = document.querySelector('.buttons-container');
   const button = document.createElement('button');
@@ -51,6 +50,7 @@ function createHolidayButton(text) {
   parentDiv.appendChild(button);
 }
 
+// 3 - 
 function changeHolidaysBgColorOnClick() {
   const holidayElements = document.getElementsByClassName('holiday');
   for (holiday of holidayElements) {
@@ -62,6 +62,7 @@ function changeHolidaysBgColorOnClick() {
   }
 }
 
+// 4 - 
 function createFridayButton(text) {
   const parentDiv = document.querySelector('.buttons-container');
   const button = document.createElement('button');
@@ -72,6 +73,22 @@ function createFridayButton(text) {
   parentDiv.appendChild(button);
 }
 
+// 5 - 
+function changeFridaysTextOnClick() {
+  const fridayMessage = 'Sextou';
+  const fridayElements = document.getElementsByClassName('friday');
+
+  for (let index = 0; index < fridays.length; index += 1) {
+    const friday = fridayElements[index];
+
+    if (friday.innerText !== fridayMessage) {
+      friday.innerText = fridayMessage;
+    } else {
+      friday.innerText = fridays[index];
+    }
+  }
+}
+
 // Functions calling and code
 
 createDaysOfTheWeek();
@@ -79,5 +96,8 @@ createDaysOfTheMonth();
 createHolidayButton('Feriados');
 createFridayButton('Sexta-feira');
 
-const button = document.getElementById('btn-holiday');
-button.addEventListener('click', changeHolidaysBgColorOnClick);
+const holidayButton = document.getElementById('btn-holiday');
+holidayButton.addEventListener('click', changeHolidaysBgColorOnClick);
+
+const fridayButton = document.getElementById('btn-friday');
+fridayButton.addEventListener('click', changeFridaysTextOnClick);
