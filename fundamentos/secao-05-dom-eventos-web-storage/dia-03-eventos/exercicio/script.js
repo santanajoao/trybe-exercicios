@@ -55,7 +55,7 @@ function createHolidayButton(text) {
   buttonsParent.appendChild(button);
 }
 
-// 3 - 
+// 3 - Crie uma função que mude a cor de fundo dos feriados ao clicar no botão
 function changeHolidaysBgColorOnClick() {
   const holidayElements = document.getElementsByClassName('holiday');
   for (holiday of holidayElements) {
@@ -67,7 +67,7 @@ function changeHolidaysBgColorOnClick() {
   }
 }
 
-// 4 - 
+// 4 - Crie um botão com o nome Sexta-feira
 function createFridayButton(text) {
   const button = document.createElement('button');
 
@@ -77,7 +77,7 @@ function createFridayButton(text) {
   buttonsParent.appendChild(button);
 }
 
-// 5 - 
+// 5 - Crie uma função que altera o texto das sextas ao clicar no botão
 function changeFridaysTextOnClick() {
   const fridayMessage = 'Sextou';
   const fridayElements = document.getElementsByClassName('friday');
@@ -93,7 +93,7 @@ function changeFridaysTextOnClick() {
   }
 }
 
-// 6 -
+// 6 - Crie uma função que crie um efeito de zoom ao passar o mouse
 function zoomOnHover(object) {
   const day = object.target
   if (day.style.fontSize !== '24px') {
@@ -105,7 +105,7 @@ function zoomOnHover(object) {
   }
 }
 
-// 7 -
+// 7 - Crie uma função que adicione uma tarefa e receba como parâmetro
 function addTask(task) {
   const spanTask = document.createElement('span');
 
@@ -113,7 +113,7 @@ function addTask(task) {
   tasksParent.appendChild(spanTask);
 }
 
-// 8 -
+// 8 - Crie uma função que adicione uma legenda a tarefa
 function addTaskLabel(color) {
   const labelDiv = document.createElement('div');
 
@@ -123,7 +123,7 @@ function addTaskLabel(color) {
   tasksParent.appendChild(labelDiv);
 }
 
-// 9 -
+// 9 - Crie uma função que selecione uma tarefa
 function selectTask(object) {
   const selectedClass = ' selected';
   const selectedTask = object.target;
@@ -138,7 +138,7 @@ function selectTask(object) {
   }
 }
 
-// 10 -
+// 10 - Crie uma função que atribua a cor da tarefa a um dia do calendário
 function markDayOfMonth(object) {
   const color = document.querySelector('.selected').style.backgroundColor;
   const clickedDay = object.target;
@@ -149,7 +149,8 @@ function markDayOfMonth(object) {
   }
 }
 
-// Bônus 
+// Bônus - Crie uma função que adicione compromissos ao clicar no botão ou
+// apertar enter
 
 function addCompromisso(object) {
   const validKeys = [undefined, 'Enter'];
