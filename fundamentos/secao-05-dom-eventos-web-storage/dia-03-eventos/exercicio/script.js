@@ -173,7 +173,7 @@ function addCompromissoEventListener() {
   const input = document.getElementById('task-input');
   const button = document.getElementById('btn-add');
 
-  input.addEventListener('keyup', addCompromisso)
+  input.addEventListener('keydown', addCompromisso)
   button.addEventListener('click', addCompromisso);
 }
 
