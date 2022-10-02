@@ -42,7 +42,7 @@ function createDaysOfTheMonth() {
 }
 
 // Crie um botão com o nome Feriados
-function createHolidaysButton(text) {
+function createHolidayButton(text) {
   const parentDiv = document.querySelector('.buttons-container');
   const button = document.createElement('button');
 
@@ -62,11 +62,22 @@ function changeHolidaysBgColorOnClick() {
   }
 }
 
+function createFridayButton(text) {
+  const parentDiv = document.querySelector('.buttons-container');
+  const button = document.createElement('button');
+
+  button.innerText = text;
+  button.id = 'btn-friday';
+
+  parentDiv.appendChild(button);
+}
+
 // Functions calling and code
 
 createDaysOfTheWeek();
 createDaysOfTheMonth();
-createHolidaysButton('Feriados');
+createHolidayButton('Feriados');
+createFridayButton('Sexta-feira');
 
 const button = document.getElementById('btn-holiday');
 button.addEventListener('click', changeHolidaysBgColorOnClick);
