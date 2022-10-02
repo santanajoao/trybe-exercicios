@@ -24,7 +24,7 @@ function createDaysOfTheMonth() {
     17, 18, 19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
   const holidays = [24, 25, 31];
-  const parentUl = document.getElementById('days');
+  const parentUL = document.getElementById('days');
 
   for (const day of decemberDaysList) {
     const dayLI = document.createElement('li');
@@ -41,7 +41,7 @@ function createDaysOfTheMonth() {
     dayLI.addEventListener('mouseleave', zoomOnHover);
     dayLI.addEventListener('click', markDayOfMonth);
   
-    parentUl.appendChild(dayLI);
+    parentUL.appendChild(dayLI);
   }
 }
 
@@ -149,6 +149,32 @@ function markDayOfMonth(object) {
   }
 }
 
+// Bônus 
+
+function addCompromisso(object) {
+  const validKeys = [undefined, 'Enter'];
+  const parentUL = document.querySelector('.task-list');
+  const taskText = document.getElementById('task-input').value;
+  const taskLI = document.createElement('li');
+
+  if (validKeys.includes(object.key)) {
+    if (taskText === '') {
+      window.alert('Campo vazio! Escreva seu compromisso para adicionar.')
+    } else {
+      taskLI.innerText = taskText;
+      parentUL.appendChild(taskLI);
+    }
+  }
+}
+
+function addCompromissoEventListener() {
+  const input = document.getElementById('task-input');
+  const button = document.getElementById('btn-add');
+
+  input.addEventListener('keyup', addCompromisso)
+  button.addEventListener('click', addCompromisso);
+}
+
 // Functions calling and code
 createDaysOfTheWeek();
 createDaysOfTheMonth();
@@ -159,3 +185,5 @@ createFridayButton('Sexta-feira');
 
 addTask('Projeto');
 addTaskLabel('green');
+
+addCompromissoEventListener();
