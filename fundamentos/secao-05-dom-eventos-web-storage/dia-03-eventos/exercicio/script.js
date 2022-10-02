@@ -136,6 +136,21 @@ function addTaskLabel(color) {
   tasksParent.appendChild(labelDiv);
 }
 
+// 9 -
+function selectTask(object) {
+  const selectedClass = ' selected';
+  const selectedDiv = object.target;
+  const allTasks = document.getElementsByClassName('task');
+
+  for (const task of allTasks) {
+    if (task === selectedDiv) {
+      task.className += selectedClass;
+    } else {
+      task.className = task.className.replace(selectTask, '');
+    }
+  } 
+}
+
 // Functions calling and code
 createDaysOfTheWeek();
 createDaysOfTheMonth();
