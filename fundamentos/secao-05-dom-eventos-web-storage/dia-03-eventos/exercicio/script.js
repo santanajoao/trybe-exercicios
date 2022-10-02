@@ -118,6 +118,16 @@ function addEventListenerOnMonthDays() {
     day.addEventListener('mouseleave', zoomOnHover);
   }
 }
+
+// 7 -
+function addTask(task) {
+  const parentDiv = document.querySelector('.my-tasks');
+  const spanTask = document.createElement('span');
+
+  spanTask.innerText = task;
+  parentDiv.appendChild(spanTask);
+}
+
 // Functions calling and code
 
 createDaysOfTheWeek();
