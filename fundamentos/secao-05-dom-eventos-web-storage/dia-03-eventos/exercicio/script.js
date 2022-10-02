@@ -133,7 +133,23 @@ function addTaskLabel(color) {
 
   labelDiv.style.backgroundColor = color;
   labelDiv.className = 'task';
+  labelDiv.addEventListener('click', selectTask);
   tasksParent.appendChild(labelDiv);
+}
+
+// 9 -
+function selectTask(object) {
+  const selectedClass = ' selected';
+  const selectedTask = object.target;
+  const allTasks = document.getElementsByClassName('task');
+
+  for (const task of allTasks) {
+    if (task === selectedTask && !task.className.includes(selectedClass)) {
+      task.className += selectedClass;
+    } else {
+      task.className = task.className.replace(selectedClass, '');
+    }
+  }
 }
 
 // Functions calling and code
