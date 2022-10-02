@@ -23,10 +23,11 @@ function createDaysOfTheMonth() {
   ];
   const fridays = [4, 11, 18, 25];
   const holidays = [24, 25, 31];
-
   const parentUl = document.getElementById('days');
+  
   for (const day of decemberDaysList) {
     const dayLI = document.createElement('li');
+
     dayLI.innerText = day;
     dayLI.className = 'day';
     if (fridays.includes(day)) {
@@ -40,7 +41,18 @@ function createDaysOfTheMonth() {
   }
 }
 
+// Crie um botão com o nome Feriados
+function createHolidaysButton(text) {
+  const parentDiv = document.querySelector('.buttons-container');
+  const button = document.createElement('button');
+
+  button.innerText = text;
+  button.id = 'btn-holiday';
+  parentDiv.appendChild(button);
+}
+
 // Functions calling and code
 
 createDaysOfTheWeek();
 createDaysOfTheMonth();
+createHolidaysButton('Feriados');
