@@ -1,7 +1,9 @@
 // Global variables
 const fridays = [4, 11, 18, 25];
-// Fuctions
+const buttonsParent = document.querySelector('.buttons-container');
+const tasksParent = document.querySelector('.my-tasks')
 
+// Fuctions
 function createDaysOfTheWeek() {
   const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
   const weekDaysList = document.querySelector('.week-days');
@@ -42,12 +44,11 @@ function createDaysOfTheMonth() {
 
 // 2 - Crie um botão com o nome Feriados
 function createHolidayButton(text) {
-  const parentDiv = document.querySelector('.buttons-container');
   const button = document.createElement('button');
 
   button.innerText = text;
   button.id = 'btn-holiday';
-  parentDiv.appendChild(button);
+  buttonsParent.appendChild(button);
 }
 
 // 3 - 
@@ -69,13 +70,12 @@ holidayButton.addEventListener('click', changeHolidaysBgColorOnClick);
 
 // 4 - 
 function createFridayButton(text) {
-  const parentDiv = document.querySelector('.buttons-container');
   const button = document.createElement('button');
 
   button.innerText = text;
   button.id = 'btn-friday';
 
-  parentDiv.appendChild(button);
+  buttonsParent.appendChild(button);
 }
 
 // 5 - 
@@ -121,15 +121,22 @@ function addEventListenerOnMonthDays() {
 
 // 7 -
 function addTask(task) {
-  const parentDiv = document.querySelector('.my-tasks');
   const spanTask = document.createElement('span');
 
   spanTask.innerText = task;
-  parentDiv.appendChild(spanTask);
+  tasksParent.appendChild(spanTask);
+}
+
+// 8 -
+function addTaskLabel(color) {
+  const labelDiv = document.createElement('div');
+  
+  labelDiv.className = 'task';
+  labelDiv.backgroundColor = color;
+  tasksParent.appendChild(labelDiv);
 }
 
 // Functions calling and code
-
 createDaysOfTheWeek();
 createDaysOfTheMonth();
 
