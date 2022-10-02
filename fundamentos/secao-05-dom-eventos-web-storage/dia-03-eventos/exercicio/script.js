@@ -24,7 +24,7 @@ function createDaysOfTheMonth() {
   const fridays = [4, 11, 18, 25];
   const holidays = [24, 25, 31];
   const parentUl = document.getElementById('days');
-  
+
   for (const day of decemberDaysList) {
     const dayLI = document.createElement('li');
 
@@ -51,8 +51,22 @@ function createHolidaysButton(text) {
   parentDiv.appendChild(button);
 }
 
+function changeHolidaysBgColorOnClick() {
+  const holidayElements = document.getElementsByClassName('holiday');
+  for (holiday of holidayElements) {
+    if (holiday.style.backgroundColor !== 'lightgreen') {
+      holiday.style.backgroundColor = 'lightgreen';
+    } else {
+      holiday.style.backgroundColor = 'rgb(238,238,238)';
+    }
+  }
+}
+
 // Functions calling and code
 
 createDaysOfTheWeek();
 createDaysOfTheMonth();
 createHolidaysButton('Feriados');
+
+const button = document.getElementById('btn-holiday');
+button.addEventListener('click', changeHolidaysBgColorOnClick);
