@@ -39,6 +39,7 @@ function createDaysOfTheMonth() {
     }
     dayLI.addEventListener('mouseover', zoomOnHover);
     dayLI.addEventListener('mouseleave', zoomOnHover);
+    dayLI.addEventListener('click', markDayOfMonth);
   
     parentUl.appendChild(dayLI);
   }
@@ -134,6 +135,17 @@ function selectTask(object) {
     } else {
       task.className = task.className.replace(selectedClass, '');
     }
+  }
+}
+
+// 10 -
+function markDayOfMonth(object) {
+  const color = document.querySelector('.selected').style.backgroundColor;
+  const clickedDay = object.target;
+  if (clickedDay.style.color !== color) {
+    clickedDay.style.color = color;
+  } else {
+    clickedDay.style.color = 'rgb(119,119,119)';
   }
 }
 
