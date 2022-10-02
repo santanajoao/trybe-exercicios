@@ -154,15 +154,16 @@ function markDayOfMonth(object) {
 function addCompromisso(object) {
   const validKeys = [undefined, 'Enter'];
   const parentUL = document.querySelector('.task-list');
-  const taskText = document.getElementById('task-input').value;
+  const task = document.getElementById('task-input');
   const taskLI = document.createElement('li');
 
   if (validKeys.includes(object.key)) {
-    if (taskText === '') {
+    if (task.value === '') {
       window.alert('Campo vazio! Escreva seu compromisso para adicionar.')
     } else {
-      taskLI.innerText = taskText;
+      taskLI.innerText = task.value;
       parentUL.appendChild(taskLI);
+      task.value = '';
     }
   }
 }
