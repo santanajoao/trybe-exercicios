@@ -1,0 +1,36 @@
+header {
+  text-align: center;
+}
+
+header a {
+  width: 160px;
+  margin: 5px auto;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+section {
+  text-align: justify;
+}
+
+article {
+  text-align: center;
+  padding: 0 10% 5%;
+}
+
+.column {
+  vertical-align: top;
+  display: inline-block;
+  width: 46%;
+}
+
+#column-left {
+  padding-right: 2%;
+}
+
+#column-right {
+  padding-left: 2%;
+}
