@@ -28,7 +28,7 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 5.1 - DOM e Seletores
 - [X] 5.2 - Trabalhando com elementos
 - [X] 5.3 - Eventos
-- [ ] 5.4 - Web Storage
+- [X] 5.4 - Web Storage
 
 ## Legenda
 - :heavy_check_mark: - Concluído
