@@ -172,8 +172,8 @@ function addCompromisso(object) {
     if (task.value.replace(/ /g, '') === '') {
       window.alert('Campo vazio! Escreva seu compromisso para adicionar.')
     } else {
-      task.value = '';
       taskLI.innerText = task.value;
+      task.value = '';
       parentUL.appendChild(taskLI);
     }
   }
