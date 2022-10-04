@@ -58,11 +58,14 @@ function createHolidayButton(text) {
 // 3 - Crie uma função que mude a cor de fundo dos feriados ao clicar no botão
 function changeHolidaysBgColorOnClick() {
   const holidayElements = document.getElementsByClassName('holiday');
+  const initialColor = 'rgb(238, 238, 238)';
+  const newColor = 'lightgreen';
+
   for (holiday of holidayElements) {
-    if (holiday.style.backgroundColor !== 'lightgreen') {
-      holiday.style.backgroundColor = 'lightgreen';
+    if (holiday.style.backgroundColor !== newColor) {
+      holiday.style.backgroundColor = newColor;
     } else {
-      holiday.style.backgroundColor = 'rgb(238,238,238)';
+      holiday.style.backgroundColor = initialColor;
     }
   }
 }
@@ -79,8 +82,8 @@ function createFridayButton(text) {
 
 // 5 - Crie uma função que altera o texto das sextas ao clicar no botão
 function changeFridaysTextOnClick() {
-  const fridayMessage = 'Sextou';
   const fridayElements = document.getElementsByClassName('friday');
+  const fridayMessage = 'Sextou';
 
   for (let index = 0; index < fridays.length; index += 1) {
     const friday = fridayElements[index];
@@ -96,12 +99,17 @@ function changeFridaysTextOnClick() {
 // 6 - Crie uma função que crie um efeito de zoom ao passar o mouse
 function zoomOnHover(object) {
   const day = object.target
-  if (day.style.fontSize !== '24px') {
-    day.style.fontSize = '24px';
-    day.style.fontWeight = 600;
+  const initialSize = '20px';
+  const zoomSize = '24px';
+  const initialWeight = 400;
+  const zoomWeight = 600;
+
+  if (day.style.fontSize !== zoomSize) {
+    day.style.fontSize = zoomSize;
+    day.style.fontWeight = zoomWeight;
   } else {
-    day.style.fontSize = '20px';
-    day.style.fontWeight = 400;
+    day.style.fontSize = initialSize;
+    day.style.fontWeight = initialWeight;
   }
 }
 
@@ -125,9 +133,9 @@ function addTaskLabel(color) {
 
 // 9 - Crie uma função que selecione uma tarefa
 function selectTask(object) {
-  const selectedClass = ' selected';
-  const selectedTask = object.target;
   const allTasks = document.getElementsByClassName('task');
+  const selectedTask = object.target;
+  const selectedClass = ' selected';
 
   for (const task of allTasks) {
     if (task === selectedTask && !task.className.includes(selectedClass)) {
@@ -140,12 +148,14 @@ function selectTask(object) {
 
 // 10 - Crie uma função que atribua a cor da tarefa a um dia do calendário
 function markDayOfMonth(object) {
-  const color = document.querySelector('.selected').style.backgroundColor;
   const clickedDay = object.target;
+  const color = document.querySelector('.selected').style.backgroundColor;
+  const initialColor = 'rgb(119, 119, 119)'
+
   if (clickedDay.style.color !== color) {
     clickedDay.style.color = color;
   } else {
-    clickedDay.style.color = 'rgb(119,119,119)';
+    clickedDay.style.color = initialColor;
   }
 }
 
@@ -154,17 +164,17 @@ function markDayOfMonth(object) {
 
 function addCompromisso(object) {
   const validKeys = [undefined, 'Enter'];
-  const parentUL = document.querySelector('.task-list');
   const task = document.getElementById('task-input');
   const taskLI = document.createElement('li');
+  const parentUL = document.querySelector('.task-list');
 
   if (validKeys.includes(object.key)) {
     if (task.value.replace(/ /g, '') === '') {
       window.alert('Campo vazio! Escreva seu compromisso para adicionar.')
     } else {
+      task.value = '';
       taskLI.innerText = task.value;
       parentUL.appendChild(taskLI);
-      task.value = '';
     }
   }
 }
