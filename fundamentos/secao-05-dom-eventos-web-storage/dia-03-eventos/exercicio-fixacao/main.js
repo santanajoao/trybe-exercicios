@@ -33,7 +33,7 @@ function becomeTech(object) {
 input.addEventListener('keyup', changeLiText);
 
 function changeLiText() {
-  const targetLi = document.getElementsByClassName('tech')[0];
+  const targetLi = document.querySelector('.tech');
   targetLi.innerText = input.value;
 }
 
@@ -43,7 +43,7 @@ function changeLiText() {
 myWebpage.addEventListener('dblclick', goToPortifolio);
 
 function goToPortifolio() {
-  window.location = 'https://github.com/santanajoao/santanajoao.github.io';
+  window.location = 'https:santanajoao.github.io';
 }
 
 // - Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
