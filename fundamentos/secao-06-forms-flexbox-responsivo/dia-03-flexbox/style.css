@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Ubuntu';
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  align-items: center;
+  background-color: rgb(50, 52, 51);
+  display: flex;
+  justify-content: space-around;
+}
+
+hr {
+  margin: 20px;
+  width: 150px;
+}
+
+header h1 {
+  color: rgb(222, 238, 237);
+  font-size: 24px;
+}
+
+header h3 {
+  color: rgb(125, 138, 146);
+  text-decoration: underline;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.paragraph-container {
+  padding: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.paragraph-container p {
+  font-size: 24px;
+}
+
+.technologies-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.technologies-cards-container {
+  width: 50%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.technology-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  box-shadow: 3px 3px 1px rgb(210, 210, 210);
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin: 6px;
+}
+
+.technology-card h4 {
+  margin: 10px 0;
+  color: rgb(100, 101, 114);
+}
+
+.header-img {
+  width: 70px;
+}
+
+.gallery-img {
+  width: 150px;
+}
+
+.social-img {
+  margin: 0 5px;
+  width: 25px;
+}
