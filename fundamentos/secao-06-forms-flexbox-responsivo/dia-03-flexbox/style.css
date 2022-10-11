@@ -5,73 +5,9 @@
   padding: 0;
 }
 
-header {
-  align-items: center;
-  background-color: rgb(50, 52, 51);
-  display: flex;
-  justify-content: space-around;
-}
-
 hr {
-  margin: 20px;
-  width: 150px;
-}
-
-header h1 {
-  color: rgb(222, 238, 237);
-  font-size: 24px;
-}
-
-header h3 {
-  color: rgb(125, 138, 146);
-  text-decoration: underline;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-}
-
-.paragraph-container {
-  padding: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.paragraph-container p {
-  font-size: 24px;
-}
-
-.technologies-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
-
-.technologies-cards-container {
-  width: 50%;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-}
-
-.technology-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(241, 241, 241);
-  box-shadow: 3px 3px 1px rgb(210, 210, 210);
-  border-radius: 15px;
-  padding: 10px 15px;
-  margin: 6px;
-}
-
-.technology-card h4 {
-  margin: 10px 0;
-  color: rgb(100, 101, 114);
+  margin-top: 10px;
+  width: 25%;
 }
 
 .header-img {
@@ -83,6 +19,66 @@ footer {
 }
 
 .social-img {
-  margin: 0 5px;
+  margin: 15px 5px;
   width: 25px;
+}
+
+.main-header {
+  align-items: center;
+  background-color: rgb(50, 50, 50);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.main-header h1 {
+  color: rgb(222, 238, 237);
+  font-size: 24px;
+}
+
+.main-header h3 {
+  color: rgb(125, 138, 146);
+  text-decoration: underline;
+}
+
+.text-section {
+  display: flex;
+  justify-content: center;
+}
+
+.text-section p {
+  font-size: 24px;
+  margin: 15px 0;
+  text-align: center;
+  width: 90%;
+}
+
+.technologies-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+}
+
+.card {
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  border-radius: 15px;
+  box-shadow: 3px 3px 2px rgb(200, 200, 200);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 5px 10px;
+  padding: 10px 15px;
+}
+
+.card h4 {
+  margin: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
