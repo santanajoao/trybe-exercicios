@@ -24,11 +24,18 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 4.3 - Lógica de Programação e Algoritimos
 - [X] 4.4 - Objetos e Funções
 
-### [Seção 05](./fundamentos/secao-05-dom-eventos-web-storage/): DOM, Eventos e Web Storage :construction:
+### [Seção 05](./fundamentos/secao-05-dom-eventos-web-storage/): DOM, Eventos e Web Storage :heavy_check_mark:
 - [X] 5.1 - DOM e Seletores
 - [X] 5.2 - Trabalhando com elementos
 - [X] 5.3 - Eventos
 - [X] 5.4 - Web Storage
+
+### [Seção 06](./fundamentos/secao-06-forms-flexbox-responsivo/): 🎨 Forms, Flexbox e Responsivo :construction:
+- [X] 6.1 - Forms
+- [X] 6.2 - Bibliotecas JS e Frameworks CSS
+- [X] 6.3 - Flexbox
+- [X] 6.4 - Flexbox
+- [ ] 6.5 - Responsivo Mobile First
 
 ## Legenda
 - :heavy_check_mark: - Concluído
