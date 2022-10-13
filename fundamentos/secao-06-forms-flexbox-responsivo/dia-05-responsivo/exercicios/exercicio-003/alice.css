@@ -11,6 +11,8 @@ html {
 }
 
 header {
+  width: 100%;
+  padding: 0 15px;
   font-family:  'Lobster', cursive;
   display: flex;
   flex-flow: column;
@@ -20,16 +22,16 @@ header {
   background-color: brown;
 }
 
+ul {
+  list-style: none;
+}
+
 header p {
   text-shadow: 1px 1px 1px white;
   text-align: center;
   color: goldenrod;
-  font-size: 30px;
+  font-size: 31px;
   margin-bottom: 20px;
-}
-
-header ul {
-  list-style: none;
 }
 
 header li {
@@ -37,6 +39,52 @@ header li {
   border-radius: 5px;
   text-align: center;
   margin: 12px;
-  padding: 5px 10px;
+  padding: 8px 15px;
   background-color: goldenrod;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+}
+
+#asides {
+  background-color: lightseagreen;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside-one ul, .aside-two ul {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin-top: 10px;
+  line-height: 20px;
+}
+
+.aside-one, .aside-two {
+  padding: 15px 15px 30px 15px;
+}
+
+.aside-one h2, .aside-two h2 {
+  color: white;
+  text-shadow: 2px 2px rgb(0, 0, 0, 0.25);
+}
+
+.main-content {
+  align-self: center;
+  width: 85%;
+}
+
+.main-content p {
+  font-family: Arial, sans-serif;
+  line-height: 20px;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.main-content h1 {
+  font-size: 25px;
 }
