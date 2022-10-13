@@ -63,6 +63,7 @@ p strong {
 }
 
 .card:nth-of-type(3) {
+  display: flex;
   background-color: #41197f;
 }
 
@@ -75,5 +76,11 @@ p strong {
 @media screen and (min-width: 600px) and (max-width: 1000px) {
   .card:nth-of-type(2) {
     display: flex;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 950px) {
+  .card:nth-of-type(3) {
+    display: none;
   }
 }
