@@ -23,8 +23,17 @@ function checkImageRight() {
   return imageRightCheckBox.checked;
 }
 
+function checkDate() {
+  const actualDate = Date.now();
+  const dateString = document.getElementById('date-input').value;
+  const date = new Date(dateString);
+  const maxDate = new Date('2022/12/31');
+  return (date > actualDate) && (date < maxDate);  
+}
+
 submitButton.addEventListener('click', function(event) {
-  if (checkName() && checkEmail() && checkText() && checkImageRight()) {
+  if (checkName() && checkEmail() && checkText() && checkImageRight() 
+  && checkDate()) {
     alert('Dados enviados com sucesso!');
   } else {
     event.preventDefault();
