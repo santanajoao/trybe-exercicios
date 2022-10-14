@@ -222,4 +222,8 @@ footer p:nth-of-type(2) {
   .main-content {
     max-width: 65%;
   }
+
+  .main-content p {
+    line-height: 24px;
+  }
 }
