@@ -1,5 +1,5 @@
-// Caso algum dos valores inseridos nos inputs pela pessoa usuária estejam em
-// branco, lance um erro.
+//Caso a pessoa usuária nao preencha nenhum input, ou preencha apenas um input,
+//lance um erro.
 const checkEmpty = (a, b) => {
   if (a.trim() === '' || b.trim() === '') {
     throw new Error('Campo vazio! Insira os valores para somar.');
