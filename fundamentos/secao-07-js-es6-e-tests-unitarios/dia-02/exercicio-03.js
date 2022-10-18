@@ -55,5 +55,32 @@ const getPositionValue = (object, position) => Object.values(object)[position];
 // Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da
 // chave e o valor da chave. Exemplo:
 const verifyPair = (object, key, value) => {
-  return Object.keys(object).includes(key) && object[key] === value;
+  return (Object.keys(object).includes(key) && object[key] === value);
+};
+
+// Utilizando o objeto (allLesson), crie uma função para contar quantos
+// estudantes assistiram às aulas de Matemática.
+
+// presentStudents('Matemática');
+const presentStudents = (lessonSubject) => {
+  let presentStudents = 0;
+  Object.values(allLessons).forEach((lesson) => {
+    const sameSubject = lesson.materia === lessonSubject;
+    presentStudents += (sameSubject ? lesson.numeroEstudantes : 0);
+  });
+  return presentStudents;
+};
+
+// Utilizando o objeto (allLesson), crie uma função que deverá retornar um
+// objeto que representa o relatório do professor ou professora, as aulas que
+// ele ou ela ministrou e o número total de estudantes.
+const createReport = (object, teacherName) => {
+  const report = { professor : teacherName, aulas : [], estudantes : 0};
+  Object.values(object).forEach((lesson) => {
+    if (lesson.professor === teacherName) {
+      report.aulas.push(lesson.materia);
+      report.estudantes += lesson.numeroEstudantes;
+    }
+  });
+  return report
 };
