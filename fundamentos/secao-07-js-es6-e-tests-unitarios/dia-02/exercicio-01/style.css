@@ -31,7 +31,7 @@ main {
 .input-section {
   align-items: center;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   height: 100%;
   justify-content: center;
 }
@@ -83,4 +83,50 @@ main input {
 
 #sum-button:active {
   background-color: rgb(175, 230, 50);
+}
+
+@media screen and (max-width: 445px) {
+  body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    box-shadow: none;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .input-section input {
+    text-indent: 20px;
+    padding: 5px 0;
+    width: 70%;
+    border-radius: 30px;
+  }
+
+  .inputs-n-symbol {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #plus-symbol {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  #sum-result {
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  #error-paragraph {
+    line-height: 18px;
+    max-width: 85%;
+    font-weight: 700;
+    text-align: center;
+  }
 }
