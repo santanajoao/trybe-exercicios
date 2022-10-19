@@ -4,7 +4,7 @@ const checkEmpty = (a, b) => {
   if (a.trim() === '' || b.trim() === '') {
     throw new Error('Campo vazio! Insira os valores para somar.');
   }
-}
+};
 
 // Caso os valores inseridos nos inputs pela pessoa usuária não sejam números,
 // lance um erro. Você pode fazer essa verificação utilizando a função isNan().
@@ -12,13 +12,17 @@ const isNumber = (value) => {
   if (isNaN(value)) {
     throw new Error('Valores inválidos! Insira valores numéricos para somar.');
   }
-}
+};
+
+const sumComma = (a, b) => {
+  return Number(a.replace(',', '.')) + Number(b.replace(',', '.'));
+};
 
 const sum = () => {
   try {
     const term1 = document.querySelector('#first-term-input').value;
     const term2 = document.querySelector('#second-term-input').value;
-    const sum = Number(term1) + Number(term2);
+    const sum = sumComma(term1, term2);
     checkEmpty(term1, term2);
     isNumber(sum);
     document.querySelector('#sum-result').innerText = `Resultado: ${sum}`;
@@ -34,9 +38,9 @@ const sum = () => {
     document.querySelector('#first-term-input').value = '';
     document.querySelector('#second-term-input').value = '';
   }
-}
+};
 
 window.onload = () => {
   const button = document.querySelector('#sum-button');
   button.addEventListener('click', sum);
-}
+};
