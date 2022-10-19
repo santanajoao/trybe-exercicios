@@ -13,4 +13,7 @@ describe('3 - Função "myFizzBuzz"', () => {
   });
   // Faça uma chamada com um número divisível por 5 e verifique se
   // o retorno é o esperado
+  it('teste se myFizzBuzz(10) retorna "buzz"', () => {
+    expect(myFizzBuzz(10)).toBe('buzz');
+  });
 });
