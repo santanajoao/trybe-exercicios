@@ -67,6 +67,10 @@ main input {
   font-size: 30px;
 }
 
+hr {
+  display: none;
+}
+
 #sum-button {
   align-items: center;
   background-color: greenyellow;
@@ -128,5 +132,19 @@ main input {
     max-width: 85%;
     font-weight: 700;
     text-align: center;
+  }
+
+  .result-n-button {
+    height: 30%;
+    flex-flow: column;
+  }
+
+  .result-n-button span {
+    margin-top: 10px;
+  }
+
+  hr {
+    display: flex;
+    width: 100%;
   }
 }
