@@ -5,15 +5,23 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Calculadora</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <p>Informe dois números para realizar a soma:</p>
-  <label for='first-value-input'>Valor 1:</label>
-  <input type='text' id='first-value-input'>
-  <label for='second-value-input'>Valor 2:</label>
-  <input type='text' id='second-value-input'>
-  <button type="button" id='sum-button'>Somar</button>
-  <p id='sum-result-p'></p>
+  <main>
+    <section class="input-section">
+      <p id="error-paragraph"></p>
+      <div>
+        <input type="text" name="first-term" id="first-term-input">
+        <span id="plus-symbol">+</span>
+        <input type="text" name="second-term" id="second-term-input">
+      </div>
+    </section>
+    <section class="result-n-button">
+      <span id="sum-result">Resultado</span>
+      <button id="sum-button">+</button>
+    </section>
+  </main>
   <script src="./script.js"></script>
 </body>
 </html>
