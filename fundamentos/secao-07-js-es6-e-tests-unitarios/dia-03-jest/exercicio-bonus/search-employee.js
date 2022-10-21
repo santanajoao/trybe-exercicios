@@ -50,9 +50,7 @@ const definedParameters = (parameters) => {
   });
 };
 
-// Pesquisa
 const searchEmployee = (id, detail) => {
-  // Implemente seu código aqui
   try {
     definedParameters([id, detail]);
     for (const professional of professionalBoard) {
