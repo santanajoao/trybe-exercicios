@@ -7,11 +7,11 @@ const generateEmail = (fullName) => {
 };
 
 // Passe sua função como parâmetro da HOF newEmployees para criar cada pessoa contratada em seu respectivo id
-const newEmployees = (parameterFunction) => {
+const newEmployees = (callback) => {
   const employees = {
-    id1: parameterFunction('Pedro Guerra'),
-    id2: parameterFunction('Luisa Drumond'),
-    id3: parameterFunction('Carla Paiva'),
+    id1: callback('Pedro Guerra'),
+    id2: callback('Luisa Drumond'),
+    id3: callback('Carla Paiva'),
   };
   return employees;
 }

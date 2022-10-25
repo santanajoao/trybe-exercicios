@@ -15,8 +15,8 @@ const calculateGrade = (array1, array2) => {
   return grade;
 };
 
-const hof = (studentAnswers, rightAnswers, _function) => {
-  return _function(studentAnswers, rightAnswers);
+const hof = (studentAnswers, rightAnswers, callback) => {
+  return callback(studentAnswers, rightAnswers);
 };
 
 console.log(hof(STUDENT_ANSWERS, RIGHT_ANSWERS, calculateGrade));

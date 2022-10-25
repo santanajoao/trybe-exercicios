@@ -46,21 +46,21 @@ const mageDamageMana = () => {
   return { damage: mageDamage, mana: manaSpent };
 };
 
-const turnWarrior = (_function) => {
-  warrior.damage = _function();
+const turnWarrior = (callback) => {
+  warrior.damage = callback();
   dragon.healthPoints -= warrior.damage;
 };
 
-const turnMage = (_function) => {
-  const mageDamageMana = _function();
+const turnMage = (callback) => {
+  const mageDamageMana = callback();
   const damage = mageDamageMana.damage;
   mage.damage = typeof damage === 'number' ? damage : 0;
   mage.mana -= mageDamageMana.mana;
   dragon.healthPoints -= mage.damage;
 };
 
-const turnDragon = (_function) => {
-  dragon.damage = _function();
+const turnDragon = (callback) => {
+  dragon.damage = callback();
   warrior.healthPoints -= dragon.damage;
   mage.healthPoints -= dragon.damage;
 };
@@ -71,3 +71,8 @@ const gameActions = {
   dragonTurn: turnDragon,
   showResults: () => battleMembers,
 };
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamageMana);
+gameActions.dragonTurn(dragonDamage);
+console.log(gameActions.showResults());
