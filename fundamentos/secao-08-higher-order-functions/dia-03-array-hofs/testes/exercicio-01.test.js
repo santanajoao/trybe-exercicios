@@ -11,6 +11,6 @@ describe('testa a função formatedBookNames', () => {
       'A Coisa - Terror - Stephen King',
       'O Chamado de Cthulhu - Terror - H. P. Lovecraft',
     ];
-    expect(formatedBookNames(books)).toBe(expectedResult);
+    expect(formatedBookNames(books)).toEqual(expectedResult);
   });
 });
