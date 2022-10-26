@@ -30,12 +30,24 @@ Repositório de exercícios resolvidos durante o aprendizado no curso de Desenvo
 - [X] 5.3 - Eventos
 - [X] 5.4 - Web Storage
 
-### [Seção 06](./fundamentos/secao-06-forms-flexbox-responsivo/): 🎨 Forms, Flexbox e Responsivo :construction:
+### [Seção 06](./fundamentos/secao-06-forms-flexbox-responsivo/): 🎨 Forms, Flexbox e Responsivo :heavy_check_mark:
 - [X] 6.1 - Forms
 - [X] 6.2 - Bibliotecas JS e Frameworks CSS
 - [X] 6.3 - Flexbox
 - [X] 6.4 - Flexbox
-- [ ] 6.5 - Responsivo Mobile First
+- [X] 6.5 - Responsivo Mobile First
+
+### [Seção 07](./fundamentos/secao-07-js-es6-e-tests-unitarios/): JavaScript ES6 e Teste Unitários :heavy_check_mark:
+- [X] 7.1 - let, const, arrow functions e template literals
+- [X] 7.2 - Fluxo de exceção e objetos
+- [X] 7.3 - Jest
+
+### [Seção 08](./fundamentos/secao-08-higher-order-functions/): Higher Order Functions :construction:
+- [X] 8.1 - Introdução a Higher Order Functions
+- [X] 8.2 - forEach, find, some, every, sort
+- [X] 8.3 - map e filter
+- [ ] 8.4 - reduce
+- [ ] 8.5 - spread operator, parâmetro rest, destructuring e mais
 
 ## Legenda
 - :heavy_check_mark: - Concluído
