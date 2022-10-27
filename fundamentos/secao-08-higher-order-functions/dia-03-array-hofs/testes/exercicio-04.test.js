@@ -1,8 +1,8 @@
 const books = require('../books-data');
 const oldBooksOrdered = require('../exercicios/exercicio-04');
 
-describe('testa a função []', () => {
-  it('testa se [] retorna o valor esperado', () => {
+describe('testa a função oldBooksOrdered', () => {
+  it('testa se oldBooksOrdered retorna o valor esperado', () => {
     const expectedResult = [
       {
         id: 6,
