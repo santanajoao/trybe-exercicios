@@ -61,9 +61,14 @@ const books = [
   },
 ];
 
-const joinWComma = (string, book) => `${string}, ${book.author.name}`;
+const expectedResult = 43;
 
-const reduceNames = (booksArray) =>
-  `${booksArray.reduce(joinWComma, '').replace(', ', '')}.`;
+const getAge = (bookObj) => bookObj.releaseYear - bookObj.author.birthYear;
 
-console.log(reduceNames(books));
+const sumAuthorAge = (age, bookObject) => age + getAge(bookObject);
+
+ // Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
+const averageAge = (booksArray) => 
+  booksArray.reduce(sumAuthorAge, 0) / booksArray.length;
+
+console.log(averageAge(books));
