@@ -2,10 +2,10 @@
   "name": "field-validator",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
+    "lint": "eslinter ./src",
     "dev": "vite --open",
-    "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +17,5 @@
   },
   "devDependencies": {
     "eslint": "^8.27.0"
-  },
-  "type": "module"
+  }
 }
