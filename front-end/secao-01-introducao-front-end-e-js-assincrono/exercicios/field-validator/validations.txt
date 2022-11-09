@@ -1,0 +1,5 @@
+isStrongPassword
+isPostalCode
+isEmail
+isCreditCard
+isDate
