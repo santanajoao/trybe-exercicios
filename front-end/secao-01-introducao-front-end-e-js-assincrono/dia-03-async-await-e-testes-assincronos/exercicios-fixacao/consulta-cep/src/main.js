@@ -5,29 +5,35 @@ const inputCEPEl = document.querySelector('input');
 const searchBtnEl = document.querySelector('button');
 const displayULEl = document.querySelector('ul');
 
+const fetchCEPAPI = async (endpoint) => {
+  const API_PATH = `https://viacep.com.br/ws/${endpoint}/json/`;
+  const response = await fetch(API_PATH);
+  const data = await response.json();
+  return data;
+};
+
 const throwSweetError = (message) => {
   Swal.fire({ icon: 'error', title: message });
+};
+
+const createLiEntriesArray = ([key, value]) => {
+  const li = document.createElement('li');
+  if (value !== '') {
+    li.textContent = `${key.toUpperCase()}: ${value}`;
+    displayULEl.appendChild(li);
+  }
 };
 
 const renderCEPData = (data) => {
   displayULEl.textContent = '';
   const dataArray = Object.entries(data);
-  dataArray.forEach(([key, value]) => {
-    const li = document.createElement('li');
-    if (value !== '') {
-      li.textContent = `${key.toUpperCase()}: ${value}`;
-      displayULEl.appendChild(li);
-    }
-  });
+  dataArray.forEach(createLiEntriesArray);
 };
 
 searchBtnEl.addEventListener('click', async () => {
   try {
     const endpoint = inputCEPEl.value;
-    const API_PATH = `https://viacep.com.br/ws/${endpoint}/json/`;
-    const response = await fetch(API_PATH);
-    const data = await response.json();
-
+    const data = await fetchCEPAPI(endpoint);
     if ('erro' in data) {
       throwSweetError('CEP inexistente!');
     } else {
