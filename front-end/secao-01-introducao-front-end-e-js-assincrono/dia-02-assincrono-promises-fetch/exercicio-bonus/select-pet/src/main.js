@@ -31,13 +31,15 @@ catBtnEl.addEventListener('click', () => {
 });
 
 surpriseBtnEl.addEventListener('click', () => {
-  Promise.race([fetchAPI(DOGS_API), fetchAPI(CATS_API)])
+  const URLS = [CATS_API, DOGS_API];
+  const index = Math.round(Math.random());
+  const randomURL = URLS[index];
+  fetchAPI(randomURL)
     .then((data) => {
       if ('file' in data) {
         petImgEl.src = data.file;
       } else {
         petImgEl.src = data.message;
       }
-      renderImage();
     });
 });
