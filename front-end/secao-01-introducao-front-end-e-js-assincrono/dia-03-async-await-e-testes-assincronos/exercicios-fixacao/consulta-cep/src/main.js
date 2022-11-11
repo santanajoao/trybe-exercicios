@@ -3,14 +3,22 @@ import './style.css';
 
 const inputCEPEl = document.querySelector('input');
 const searchBtnEl = document.querySelector('button');
-const displayParagraphEl = document.querySelector('p');
+const displayULEl = document.querySelector('ul');
 
 const throwSweetError = (message) => {
   Swal.fire({ icon: 'error', title: message });
 };
 
 const renderCEPData = (data) => {
-  displayParagraphEl.textContent = data;
+  displayULEl.textContent = '';
+  const dataArray = Object.entries(data);
+  dataArray.forEach(([key, value]) => {
+    const li = document.createElement('li');
+    if (value !== '') {
+      li.textContent = `${key.toUpperCase()}: ${value}`;
+      displayULEl.appendChild(li);
+    }
+  });
 };
 
 searchBtnEl.addEventListener('click', async () => {
@@ -26,7 +34,7 @@ searchBtnEl.addEventListener('click', async () => {
       renderCEPData(data);
     }
   } catch (error) {
-    throwSweetError('O text digitado não é um CEP!');
+    throwSweetError('O texto digitado não é um CEP!');
   } finally {
     inputCEPEl.value = '';
   }
