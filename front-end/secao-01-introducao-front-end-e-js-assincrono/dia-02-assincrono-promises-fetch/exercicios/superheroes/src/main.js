@@ -12,12 +12,12 @@ const fetchAndRender = () => {
   const URL = `https://akabab.github.io/superhero-api/api/id/${id}.json`;
   fetch(URL)
     .then((response) => response.json())
-    .catch(() => fetchAndRender())
     .then(({ images, name }) => {
       heroImgEl.src = images.sm;
       heroImgEl.style.display = 'inline';
       heroNameH2El.textContent = name;
-    });
+    })
+    .catch(() => fetchAndRender());
 };
 
 drawnHeroBtnEl.addEventListener('click', fetchAndRender);
