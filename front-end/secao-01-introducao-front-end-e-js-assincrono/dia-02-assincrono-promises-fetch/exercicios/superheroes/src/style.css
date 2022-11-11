@@ -17,7 +17,7 @@ body {
 }
 
 .img-container {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(150, 150, 150, 0.1);
   border: 2px solid whitesmoke;
   box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
   height: 454px;
