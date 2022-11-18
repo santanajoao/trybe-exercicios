@@ -7,7 +7,7 @@ import './style.css';
 
 const targetInputEl = document.querySelector('#validation-target');
 const selectValidationTypeEl = document.querySelector('#select-validation');
-const validateButtonEl = document.querySelector('.validation-btn');
+const validateButtonEl = document.querySelector('button');
 const messageParagraphEl = document.querySelector('#result-p');
 
 const validateStrongPassword = (password) => {
@@ -37,9 +37,9 @@ const validateDate = (date) => {
 };
 
 const validatePostalCode = (code) => {
-  const result = isPostalCode(code, 'BR') ? 'válido' : 'inválido';
-  messageParagraphEl.innerText = `CEP ${result}\n`
-    + 'É necessário adicionar os hifens "-"';
+  const invalidMessage = 'inválido\nÉ necessário adicionar os hífens "-"'
+  const result = isPostalCode(code, 'BR') ? 'válido' : invalidMessage;
+  messageParagraphEl.innerText = `CEP ${result}`;
 };
 
 validateButtonEl.addEventListener('click', (event) => {
@@ -55,4 +55,15 @@ validateButtonEl.addEventListener('click', (event) => {
   };
   const validationFunction = typeAndFunction[validationType];
   validationFunction();
+});
+
+selectValidationTypeEl.addEventListener('change', (event) => {
+  event.preventDefault();
+  if (selectValidationTypeEl.value !== '') {
+    validateButtonEl.classList.remove('disabled');
+    validateButtonEl.classList.add('validation-btn');
+  } else {
+    validateButtonEl.classList.remove('validation-btn');
+    validateButtonEl.classList.add('disabled');
+  }
 });
