@@ -57,13 +57,11 @@ validateButtonEl.addEventListener('click', (event) => {
   validationFunction();
 });
 
-selectValidationTypeEl.addEventListener('change', (event) => {
-  event.preventDefault();
-  if (selectValidationTypeEl.value !== '') {
-    validateButtonEl.classList.remove('disabled');
-    validateButtonEl.classList.add('validation-btn');
+selectValidationTypeEl.addEventListener('change', () => {
+  if (selectValidationTypeEl.value === '') {
+    validateButtonEl.className = 'disabled';
   } else {
-    validateButtonEl.classList.remove('validation-btn');
-    validateButtonEl.classList.add('disabled');
+    validateButtonEl.className = 'validation-btn';
+    validateButtonEl.disabled = false;
   }
 });
