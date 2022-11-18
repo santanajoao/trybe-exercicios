@@ -85,4 +85,13 @@ label {
   line-height: 20px;
   min-height: 28px;
   padding: 5px 10px;
+  font-weight: 600;
+}
+
+.success {
+  color: greenyellow;
+}
+
+.fail {
+  color: orange;
 }

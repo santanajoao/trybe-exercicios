@@ -10,36 +10,51 @@ const selectValidationTypeEl = document.querySelector('#select-validation');
 const validateButtonEl = document.querySelector('button');
 const messageParagraphEl = document.querySelector('#result-p');
 
+const displayResult = (result, sucessMessage, failMessage, ) => {
+  if (result) {
+    messageParagraphEl.innerText = sucessMessage;
+    messageParagraphEl.className = 'success';
+  } else {
+    messageParagraphEl.innerText = failMessage;
+    messageParagraphEl.className = 'fail';
+  }
+}
+
 const validateStrongPassword = (password) => {
-  const isStrong = isStrongPassword(password);
   const score = isStrongPassword(password, { returnScore: true });
-  const result = isStrong ? '' : 'não ';
-  messageParagraphEl.innerText = `Sua senha ${result}é forte!\nPontuação: ${score}`;
+  displayResult(
+    isStrongPassword(password),
+    `Sua senha é forte!\nPontuação: ${score}`,
+    `Sua senha é fraca!\nPontuação: ${score}`,
+  );
 };
 
 const validateEmail = (email) => {
-  const result = isEmail(email) ? 'válido' : 'inválido';
-  messageParagraphEl.innerText = `Email ${result}!`;
+  displayResult(isEmail(email), 'Email válido!', 'Email inválido!');
 };
 
 const validateCreditCard = (card) => {
-  const result = isCreditCard(card) ? 'válido' : 'inválido';
-  messageParagraphEl.innerText = `Cartão de crédito ${result}!`;
+  displayResult(
+    isCreditCard(card),
+    'Cartão de crédito válido!',
+    'Cartão de crédito inválido!',
+  );
 };
 
 const validateDate = (date) => {
-  const result = isDate(date, { format: 'DD/MM/YYYY' }) ? 'válida' : 'inválida';
-  messageParagraphEl.innerText = `Data ${result}!\n`;
-  if (result === 'inválida') {
-    messageParagraphEl.innerText
-      += 'A data deve ser no padrão DD/MM/YYYY e separada por \'/\' ou \'-\'';
-  }
+  displayResult(
+    isDate(date, 'DD/MM/YYYY'),
+    'Data válida!',
+    'Data inválida!\nA data deve ser no padrão DD/MM/YYYY ou DD-MM-YYYY',
+  );
 };
 
 const validatePostalCode = (code) => {
-  const invalidMessage = 'inválido\nÉ necessário adicionar os hífens "-"'
-  const result = isPostalCode(code, 'BR') ? 'válido' : invalidMessage;
-  messageParagraphEl.innerText = `CEP ${result}`;
+  displayResult(
+    isPostalCode(code, 'BR'),
+    'CEP válido!',
+    'CEP inválido!\nÉ necessário adicionar os hífens "-"',
+  );
 };
 
 validateButtonEl.addEventListener('click', (event) => {
