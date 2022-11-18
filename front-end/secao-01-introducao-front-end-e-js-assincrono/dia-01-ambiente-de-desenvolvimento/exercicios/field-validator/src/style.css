@@ -20,7 +20,7 @@ form {
   box-shadow: 0px 4px 5px rgb(0, 0, 0, 0.1);
   display: flex;
   flex-flow: column nowrap;
-  min-width: 550px;
+  width: 550px;
   text-align: center;
   padding: 30px;
 }
@@ -94,4 +94,10 @@ label {
 
 .fail {
   color: orange;
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    width: 90vw;
+  }
 }
