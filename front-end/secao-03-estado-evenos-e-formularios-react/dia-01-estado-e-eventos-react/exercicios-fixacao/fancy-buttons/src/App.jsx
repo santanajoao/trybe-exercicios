@@ -1,18 +1,50 @@
 import React from 'react';
 
 export default class App extends React.Component {
-  leftBtnConsole = () => console.log('Nesse não!');
+  state = {
+    firstBtnClicksCounter: 0,
+    secondBtnClicksCounter: 0,
+    thirdBtnClicksCounter: 0,
+  };
 
-  middleBtnConsole = () => console.log('Clicou!');
+  increaseFirstBtnCounter = () => {
+    this.setState(({ firstBtnClicksCounter }) => (
+      { firstBtnClicksCounter: firstBtnClicksCounter + 1 }
+    ));
+  };
 
-  rightBtnConsole = () => console.log('Não é esse!');
+  increaseSecondBtnCounter = () => {
+    this.setState(({ secondBtnClicksCounter }) => (
+      { secondBtnClicksCounter: secondBtnClicksCounter + 1 }
+    ));
+  };
+
+  increaseThirdBtnCounter = () => {
+    this.setState(({ thirdBtnClicksCounter }) => (
+      { thirdBtnClicksCounter: thirdBtnClicksCounter + 1 }
+    ));
+  };
 
   render() {
+    const {
+      firstBtnClicksCounter,
+      secondBtnClicksCounter,
+      thirdBtnClicksCounter
+    } = this.state;
+
     return (
       <div className="App">
-        <button onClick={ this.leftBtnConsole }>Clique aqui &gt;</button>
-        <button onClick={ this.middleBtnConsole }>Clique aqui!</button>
-        <button onClick={ this.rightBtnConsole }>&lt; Clique aqui</button>
+        <button onClick={ this.increaseFirstBtnCounter }>
+          { firstBtnClicksCounter }
+        </button>
+
+        <button onClick={ this.increaseSecondBtnCounter }>
+          { secondBtnClicksCounter}
+        </button>
+
+        <button onClick={ this.increaseThirdBtnCounter }>
+          { thirdBtnClicksCounter }
+        </button>
       </div>
     )
   }
