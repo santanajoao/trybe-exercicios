@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 export default class App extends React.Component {
   state = {
@@ -7,23 +8,45 @@ export default class App extends React.Component {
     thirdBtnClicksCounter: 0,
   };
 
+  getClassName = (clicksCounter) => {
+    return (clicksCounter % 2 === 0) ? 'green' : 'yellow';
+  };
+
   increaseFirstBtnCounter = () => {
-    this.setState(({ firstBtnClicksCounter }) => (
-      { firstBtnClicksCounter: firstBtnClicksCounter + 1 }
-    ));
+    const { firstBtnClicksCounter } = this.state;
+    const newValue = firstBtnClicksCounter + 1;
+    this.setState(
+      () => ({ firstBtnClicksCounter: newValue }),
+      () => {
+        const color = this.getClassName(newValue);
+        console.log(`A cor do botão agora é ${color}`);
+      },
+    );
   };
 
   increaseSecondBtnCounter = () => {
-    this.setState(({ secondBtnClicksCounter }) => (
-      { secondBtnClicksCounter: secondBtnClicksCounter + 1 }
-    ));
+    const { secondBtnClicksCounter } = this.state;
+    const newValue = secondBtnClicksCounter + 1;
+    this.setState(
+      () => ({ secondBtnClicksCounter: newValue }),
+      () => {
+        const color = this.getClassName(newValue);
+        console.log(`A cor do botão agora é ${color}`);
+      },
+    );
   };
 
   increaseThirdBtnCounter = () => {
-    this.setState(({ thirdBtnClicksCounter }) => (
-      { thirdBtnClicksCounter: thirdBtnClicksCounter + 1 }
-    ));
-  };
+    const { thirdBtnClicksCounter } = this.state;
+    const newValue = thirdBtnClicksCounter + 1;
+    this.setState(
+      () => ({ thirdBtnClicksCounter: newValue }),
+      () => {
+        const color = this.getClassName(newValue);
+        console.log(`A cor do botão agora é ${color}`);
+      },
+    );
+  };  
 
   render() {
     const {
@@ -34,15 +57,24 @@ export default class App extends React.Component {
 
     return (
       <div className="App">
-        <button onClick={ this.increaseFirstBtnCounter }>
+        <button
+          onClick={ this.increaseFirstBtnCounter }
+          className={ this.getClassName(firstBtnClicksCounter) }
+        >
           { firstBtnClicksCounter }
         </button>
 
-        <button onClick={ this.increaseSecondBtnCounter }>
-          { secondBtnClicksCounter}
+        <button
+          onClick={ this.increaseSecondBtnCounter }
+          className={ this.getClassName(secondBtnClicksCounter) }
+        >
+          { secondBtnClicksCounter }
         </button>
 
-        <button onClick={ this.increaseThirdBtnCounter }>
+        <button
+          onClick={ this.increaseThirdBtnCounter }
+          className={ this.getClassName(thirdBtnClicksCounter) }
+        >
           { thirdBtnClicksCounter }
         </button>
       </div>
