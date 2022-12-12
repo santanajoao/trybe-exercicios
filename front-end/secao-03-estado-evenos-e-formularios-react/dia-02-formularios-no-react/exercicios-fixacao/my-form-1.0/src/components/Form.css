@@ -1,0 +1,16 @@
+.Form fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.Form legend {
+  font-size: 18px;
+}
+
+select {
+  margin-bottom: 5px;
+}
+
+input[type="file"] {
+  margin-bottom: 5px;
+}
