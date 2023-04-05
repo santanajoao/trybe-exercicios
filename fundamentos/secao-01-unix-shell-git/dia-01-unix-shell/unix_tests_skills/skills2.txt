@@ -1,0 +1,8 @@
+Internet
+Unix
+Bash
+React
+JavaScript
+HTML
+CSS
+React Testing Library
