@@ -34,6 +34,8 @@ Para executar os scripts basta abrir o terminal e rodar:
 
 :warning: Existem diferentes tipos de shells, para a resolução dos exercícios foi considerada a sintaxe e especificidades do shell bash.
 
-:warning: Cada arquivo .sh contém os comandos em ordem para resolver os requisitos dos exercícios. Cada script começa com um número _1-nome-do-arquivo_ e devem ser executados em ordem para tudo funcionar.
+:warning: Cada arquivo .sh contém os comandos em ordem para resolver os requisitos dos exercícios.
+
+:warning: Cada script começa com um número **1-nome-do-arquivo** e devem ser executados em ordem para tudo funcionar.
 
 :warning: Nem todos os comandos irão funcionar em outros shells.
