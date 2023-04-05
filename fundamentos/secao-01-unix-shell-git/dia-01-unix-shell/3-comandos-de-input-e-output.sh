@@ -34,6 +34,6 @@ grep -v br phrases2.txt | wc -l
 echo 'Brasil
 Japão' >> phrases2.txt
 
-cat phrases2.txt ../unix_test_search/countries.txt > bunch_of_things.txt
+cat phrases2.txt ../unix_tests_search/countries.txt > bunch_of_things.txt
 
 sort bunch_of_things.txt -o bunch_of_things.txt
