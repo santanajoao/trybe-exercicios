@@ -2,7 +2,7 @@ const readline = require('readline-sync');
 
 function questionFloatWithComma(
   inputMessage,
-  errorMessage = 'Invalid number, try again.',
+  errorMessage = 'Invalid number. Try again',
 ) {
   const input = readline.question(inputMessage);
   const floatInput = parseFloat(input.replace(',', '.'));
@@ -16,4 +16,14 @@ function questionFloatWithComma(
   return floatInput;
 }
 
-module.exports = { questionFloatWithComma };
+function questionInt(inputMessage, min) {
+  const input = readline.questionInt(inputMessage);
+  if (input < min) {
+    console.log(`Invalid number. Minimum: ${min}`);
+    return questionInt(inputMessage, min);
+  }
+
+  return input;
+}
+
+module.exports = { questionFloatWithComma, questionInt };
