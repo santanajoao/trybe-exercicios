@@ -1,9 +1,9 @@
+const readline = require('readline-sync');
+
 const calculateBMI = (weight, height) => weight / (height * height);
 
-const weightInKg = 70;
-const heightInMeters = 1.75;
+const weightInKg = readline.questionFloat("What's your weight? ");
+const heightInMeters = readline.questionFloat("What's you height? ");
 
 const bmi = calculateBMI(weightInKg, heightInMeters);
-console.log(
-  `O IMC de uma pessoa com ${weightInKg}kg e ${heightInMeters}m é ${bmi}`,
-);
+console.log(`Your BMI is ${bmi}`);
