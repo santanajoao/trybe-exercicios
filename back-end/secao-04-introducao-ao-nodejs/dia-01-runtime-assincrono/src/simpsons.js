@@ -1,4 +1,4 @@
-const { readJSON } = require('./utils/json');
+const { readJSON, writeJSON } = require('./utils/json');
 
 const DATA_FILE_PATH = '../data/simpsons.json';
 
@@ -7,7 +7,7 @@ async function printSimpsonsCharacters() {
   charactersList.forEach(({ id, name }) => console.log(`${id} - ${name}`));
 }
 
-async function getCharacterNameById(id) {
+async function getCharacterById(id) {
   const charactersList = await readJSON(DATA_FILE_PATH);
   const matchingCharacter = charactersList.find(
     (character) => Number(character.id) === id,
@@ -20,8 +20,24 @@ async function getCharacterNameById(id) {
   return matchingCharacter;
 }
 
-async function main() {
-  printSimpsonsCharacters();
+async function removeIdSixAndTen() {
+  const charactersList = await readJSON(DATA_FILE_PATH);
+
+  const idsToRemove = [6, 10];
+  const listWithoutTargets = charactersList.reduce((result, character) => {
+    const characterId = Number(character.id);
+    if (idsToRemove.includes(characterId)) {
+      return result;
+    }
+    return [...result, character];
+  }, []);
+
+  const jsonData = JSON.stringify(listWithoutTargets, null, 2);
+  writeJSON(DATA_FILE_PATH, jsonData);
 }
 
-main();
+module.exports = {
+  printSimpsonsCharacters,
+  getCharacterById,
+  removeIdSixAndTen,
+};
