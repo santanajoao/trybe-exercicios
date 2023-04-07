@@ -70,23 +70,3 @@ async function replaceFamilyCharacter(targetName, newName) {
   await writeFile(FAMILY_FILE_PATH, jsonList);
   addFamilyCharacter(newName);
 }
-
-async function main() {
-  await printSimpsonsCharacters();
-  await getCharacterById(5);
-  await removeIdSixAndTen();
-  await createSimpsonFamilyJSONFile();
-  await addFamilyCharacter('Nelson Muntz');
-  await replaceFamilyCharacter('Nelson Muntz', 'Maggie Simpson');
-}
-
-main();
-
-module.exports = {
-  printSimpsonsCharacters,
-  getCharacterById,
-  removeIdSixAndTen,
-  createSimpsonFamilyJSONFile,
-  addFamilyCharacter,
-  replaceFamilyCharacter,
-};
