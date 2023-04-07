@@ -53,7 +53,7 @@ function getNewId(list) {
   return newId;
 }
 
-async function addCharacter(characterName) {
+async function addFamilyCharacter(characterName) {
   if (!characterName) {
     throw new Error('No name received');
   }
@@ -65,14 +65,35 @@ async function addCharacter(characterName) {
   writeFile(FAMILY_FILE_PATH, jsonList);
 }
 
-function addNelson() {
-  addCharacter('Nelson Muntz');
+async function replaceFamilyCharacter(targetName, newName) {
+  const charactersList = await readJSON(FAMILY_FILE_PATH);
+  const newList = charactersList.reduce((result, character) => {
+    if (character.name === targetName) {
+      const newCharacter = { ...character, name: newName };
+      return [...result, newCharacter];
+    }
+    return [...result, character];
+  }, []);
+  const jsonList = JSON.stringify(newList, null, 2);
+  writeFile(FAMILY_FILE_PATH, jsonList);
 }
+
+async function main() {
+  await printSimpsonsCharacters();
+  await getCharacterById(5);
+  await removeIdSixAndTen();
+  await createSimpsonFamilyJSONFile();
+  await addFamilyCharacter('Nelson Muntz');
+  await replaceFamilyCharacter('Nelson Muntz', 'Maggie Simpson');
+}
+
+main();
 
 module.exports = {
   printSimpsonsCharacters,
   getCharacterById,
   removeIdSixAndTen,
   createSimpsonFamilyJSONFile,
-  addNelson,
+  addFamilyCharacter,
+  replaceFamilyCharacter,
 };
