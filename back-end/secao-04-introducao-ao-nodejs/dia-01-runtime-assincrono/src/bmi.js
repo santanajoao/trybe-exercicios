@@ -1,9 +1,32 @@
-const readline = require('readline-sync');
+const { questionFloatWithComma } = require('./utils/userCLInput');
 
-const calculateBMI = (weight, height) => weight / (height * height);
+function calculateBMI(weight, height) {
+  return weight / (height * height);
+}
 
-const weightInKg = readline.questionFloat("What's your weight? ");
-const heightInMeters = readline.questionFloat("What's you height? ");
+function getBMISituation(bmi) {
+  if (bmi < 18.5) return 'Abaixo do peso (magreza)';
 
-const bmi = calculateBMI(weightInKg, heightInMeters);
-console.log(`Your BMI is ${bmi}`);
+  if (bmi < 24.9) return 'Peso normal';
+
+  if (bmi < 29.9) return 'Acima do peso (sobrepeso)';
+
+  if (bmi < 34.9) return 'Obesidade grau I';
+
+  if (bmi < 39.9) return 'Obesidade grau II';
+
+  return 'Obesidade graus III e IV';
+}
+
+function main() {
+  const weightInKg = questionFloatWithComma("What's your weight? ");
+  const heightInMeters = questionFloatWithComma("What's you height? ");
+
+  const bmi = calculateBMI(weightInKg, heightInMeters);
+  const bmiSituation = getBMISituation(bmi);
+
+  console.log(`\nSeu IMC é ${bmi.toFixed(2)}`);
+  console.log(`Situação: ${bmiSituation}`);
+}
+
+main();
