@@ -2,6 +2,7 @@ const path = require('path');
 const { readJSON, writeFile } = require('./utils/files');
 
 const DATA_FILE_PATH = path.resolve(__dirname, './data/simpsons.json');
+const FAMILY_FILE_PATH = path.resolve(__dirname, './data/simpsonFamily.json');
 
 async function printSimpsonsCharacters() {
   const charactersList = await readJSON(DATA_FILE_PATH);
@@ -42,8 +43,30 @@ async function createSimpsonFamilyJSONFile() {
   const familyCharacters = charactersList.slice(0, 4);
   const jsonData = JSON.stringify(familyCharacters, null, 2);
 
-  const newFilePath = path.resolve(__dirname, './data/simpsonFamily.json');
-  writeFile(newFilePath, jsonData);
+  writeFile(FAMILY_FILE_PATH, jsonData);
+}
+
+function getNewId(list) {
+  const lastIndex = list.length - 1;
+  const lastId = Number(list[lastIndex].id);
+  const newId = `${lastId + 1}`;
+  return newId;
+}
+
+async function addCharacter(characterName) {
+  if (!characterName) {
+    throw new Error('No name received');
+  }
+
+  const familyList = await readJSON(FAMILY_FILE_PATH);
+  const newCharacter = { id: getNewId(familyList), name: characterName };
+  const newList = [...familyList, newCharacter];
+  const jsonList = JSON.stringify(newList, null, 2);
+  writeFile(FAMILY_FILE_PATH, jsonList);
+}
+
+function addNelson() {
+  addCharacter('Nelson Muntz');
 }
 
 module.exports = {
@@ -51,4 +74,5 @@ module.exports = {
   getCharacterById,
   removeIdSixAndTen,
   createSimpsonFamilyJSONFile,
+  addNelson,
 };
