@@ -3,6 +3,7 @@ const { readJSON, writeFile } = require('./utils/files');
 
 const DATA_FILE_PATH = path.resolve(__dirname, './data/simpsons.json');
 const FAMILY_FILE_PATH = path.resolve(__dirname, './data/simpsonFamily.json');
+const JSON_IDENTATION = 2;
 
 async function printSimpsonsCharacters() {
   const charactersList = await readJSON(DATA_FILE_PATH);
@@ -30,14 +31,14 @@ async function removeIdSixAndTen() {
     (character) => !idsToRemove.includes(Number(character.id)),
   );
 
-  const jsonData = JSON.stringify(listWithoutTargets, null, 2);
+  const jsonData = JSON.stringify(listWithoutTargets, null, JSON_IDENTATION);
   writeFile(DATA_FILE_PATH, jsonData);
 }
 
 async function createSimpsonFamilyJSONFile() {
   const charactersList = await readJSON(DATA_FILE_PATH);
   const familyCharacters = charactersList.slice(0, 4);
-  const jsonData = JSON.stringify(familyCharacters, null, 2);
+  const jsonData = JSON.stringify(familyCharacters, null, JSON_IDENTATION);
 
   writeFile(FAMILY_FILE_PATH, jsonData);
 }
@@ -57,7 +58,7 @@ async function addFamilyCharacter(characterName) {
   const familyList = await readJSON(FAMILY_FILE_PATH);
   const newCharacter = { id: getNewId(familyList), name: characterName };
   const newList = [...familyList, newCharacter];
-  const jsonList = JSON.stringify(newList, null, 2);
+  const jsonList = JSON.stringify(newList, null, JSON_IDENTATION);
   writeFile(FAMILY_FILE_PATH, jsonList);
 }
 
