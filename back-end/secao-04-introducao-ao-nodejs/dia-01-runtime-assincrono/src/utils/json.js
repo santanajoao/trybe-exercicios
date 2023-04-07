@@ -11,3 +11,5 @@ async function readJSON(filePath) {
     console.log(error.message);
   }
 }
+
+module.exports = { readJSON };
