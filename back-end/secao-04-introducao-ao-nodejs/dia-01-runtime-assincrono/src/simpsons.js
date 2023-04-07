@@ -1,6 +1,7 @@
-const { readJSON, writeJSON } = require('./utils/json');
+const path = require('path');
+const { readJSON, writeFile } = require('./utils/files');
 
-const DATA_FILE_PATH = '../data/simpsons.json';
+const DATA_FILE_PATH = path.resolve(__dirname, './data/simpsons.json');
 
 async function printSimpsonsCharacters() {
   const charactersList = await readJSON(DATA_FILE_PATH);
@@ -33,11 +34,21 @@ async function removeIdSixAndTen() {
   }, []);
 
   const jsonData = JSON.stringify(listWithoutTargets, null, 2);
-  writeJSON(DATA_FILE_PATH, jsonData);
+  writeFile(DATA_FILE_PATH, jsonData);
+}
+
+async function createSimpsonFamilyJSONFile() {
+  const charactersList = await readJSON(DATA_FILE_PATH);
+  const familyCharacters = charactersList.slice(0, 4);
+  const jsonData = JSON.stringify(familyCharacters, null, 2);
+
+  const newFilePath = path.resolve(__dirname, './data/simpsonFamily.json');
+  writeFile(newFilePath, jsonData);
 }
 
 module.exports = {
   printSimpsonsCharacters,
   getCharacterById,
   removeIdSixAndTen,
+  createSimpsonFamilyJSONFile,
 };
