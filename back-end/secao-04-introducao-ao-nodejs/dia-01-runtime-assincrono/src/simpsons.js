@@ -26,13 +26,9 @@ async function removeIdSixAndTen() {
   const charactersList = await readJSON(DATA_FILE_PATH);
 
   const idsToRemove = [6, 10];
-  const listWithoutTargets = charactersList.reduce((result, character) => {
-    const characterId = Number(character.id);
-    if (idsToRemove.includes(characterId)) {
-      return result;
-    }
-    return [...result, character];
-  }, []);
+  const listWithoutTargets = charactersList.filter(
+    (character) => !idsToRemove.includes(Number(character.id)),
+  );
 
   const jsonData = JSON.stringify(listWithoutTargets, null, 2);
   writeFile(DATA_FILE_PATH, jsonData);
@@ -67,15 +63,12 @@ async function addFamilyCharacter(characterName) {
 
 async function replaceFamilyCharacter(targetName, newName) {
   const charactersList = await readJSON(FAMILY_FILE_PATH);
-  const newList = charactersList.reduce((result, character) => {
-    if (character.name === targetName) {
-      const newCharacter = { ...character, name: newName };
-      return [...result, newCharacter];
-    }
-    return [...result, character];
-  }, []);
-  const jsonList = JSON.stringify(newList, null, 2);
-  writeFile(FAMILY_FILE_PATH, jsonList);
+  const listWithouTarget = charactersList.filter(
+    (character) => character.name !== targetName,
+  );
+  const jsonList = JSON.stringify(listWithouTarget);
+  await writeFile(FAMILY_FILE_PATH, jsonList);
+  addFamilyCharacter(newName);
 }
 
 async function main() {
