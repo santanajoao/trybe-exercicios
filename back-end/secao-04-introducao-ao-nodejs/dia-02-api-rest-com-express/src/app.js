@@ -9,6 +9,11 @@ const NOT_FOUND = 404;
 
 const app = express();
 
+app.get('/movies/', async (_, res) => {
+  const movieList = await readJSON(MOVIES_JSON_PATH);
+  res.status(OK).json({ movies: movieList });
+});
+
 app.get('/movies/:id', async (req, res) => {
   const requestedId = Number(req.params.id);
   const movieList = await readJSON(MOVIES_JSON_PATH);
