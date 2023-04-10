@@ -26,4 +26,10 @@ async function addMovie(name, price) {
   return newMovie;
 }
 
-module.exports = { getMovies, addMovie };
+async function getMovieById(id) {
+  const movieList = await getMovies();
+  const requestedMovie = movieList.find((movie) => movie.id === id);
+  return requestedMovie;
+}
+
+module.exports = { getMovies, addMovie, getMovieById };

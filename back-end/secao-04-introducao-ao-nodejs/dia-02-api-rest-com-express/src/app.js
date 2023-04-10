@@ -1,5 +1,5 @@
 const express = require('express');
-const { getMovies, addMovie } = require('./helpers/movies');
+const { getMovies, addMovie, getMovieById } = require('./helpers/movies');
 
 const OK = 200;
 const CREATED = 201;
@@ -22,9 +22,7 @@ app.get('/movies', async (_, res) => {
 app.get('/movies/:id', async (req, res) => {
   try {
     const requestedId = Number(req.params.id);
-    const movieList = await getMovies();
-
-    const requestedMovie = movieList.find((movie) => movie.id === requestedId);
+    const requestedMovie = await getMovieById(requestedId);
     if (requestedMovie) {
       res.status(OK).json({ movie: requestedMovie });
     } else {
@@ -44,5 +42,9 @@ app.post('/movies', async (req, res) => {
     res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
   }
 });
+
+// app.put('/movies/:id', async (req, res) => {
+//   const targetId = Number(req.params.id);
+// });
 
 module.exports = app;
