@@ -39,6 +39,8 @@ async function updateMovie(id, newName, newPrice) {
     targetMovie.movie = newName;
     targetMovie.price = newPrice;
   }
+  fs.writeFile(MOVIES_JSON_PATH, JSON.stringify(movieList, null, 2));
+
   return targetMovie;
 }
 

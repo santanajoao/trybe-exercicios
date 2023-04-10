@@ -50,7 +50,7 @@ app.post('/movies', async (req, res) => {
 app.put('/movies/:id', async (req, res) => {
   const targetId = Number(req.params.id);
   const { movie, price } = req.body;
-  const updatedMovie = updateMovie(targetId, movie, price);
+  const updatedMovie = await updateMovie(targetId, movie, price);
   if (updatedMovie) {
     return res.status(OK).json({ movie: updatedMovie });
   }
