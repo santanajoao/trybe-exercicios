@@ -15,7 +15,7 @@ async function addMovie(name, price) {
   const lastId = movies[lastIndex].id;
 
   const newId = lastId + 1;
-  const newMovie = { id: newId, name, price };
+  const newMovie = { id: newId, movie: name, price };
   movies.push(newMovie);
 
   await fs.writeFile(
@@ -32,4 +32,14 @@ async function getMovieById(id) {
   return requestedMovie;
 }
 
-module.exports = { getMovies, addMovie, getMovieById };
+async function updateMovie(id, newName, newPrice) {
+  const movieList = await getMovies();
+  const targetMovie = movieList.find((movie) => movie.id === id);
+  if (targetMovie) {
+    targetMovie.movie = newName;
+    targetMovie.price = newPrice;
+  }
+  return targetMovie;
+}
+
+module.exports = { getMovies, getMovieById, addMovie, updateMovie };

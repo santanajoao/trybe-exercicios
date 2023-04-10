@@ -1,5 +1,10 @@
 const express = require('express');
-const { getMovies, addMovie, getMovieById } = require('./helpers/movies');
+const {
+  getMovies,
+  addMovie,
+  getMovieById,
+  updateMovie,
+} = require('./helpers/movies');
 
 const OK = 200;
 const CREATED = 201;
@@ -24,10 +29,9 @@ app.get('/movies/:id', async (req, res) => {
     const requestedId = Number(req.params.id);
     const requestedMovie = await getMovieById(requestedId);
     if (requestedMovie) {
-      res.status(OK).json({ movie: requestedMovie });
-    } else {
-      res.status(NOT_FOUND).json({ message: 'Movie not found' });
+      return res.status(OK).json({ movie: requestedMovie });
     }
+    res.status(NOT_FOUND).json({ message: 'Movie not found' });
   } catch (error) {
     res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
   }
@@ -43,8 +47,14 @@ app.post('/movies', async (req, res) => {
   }
 });
 
-// app.put('/movies/:id', async (req, res) => {
-//   const targetId = Number(req.params.id);
-// });
+app.put('/movies/:id', async (req, res) => {
+  const targetId = Number(req.params.id);
+  const { movie, price } = req.body;
+  const updatedMovie = updateMovie(targetId, movie, price);
+  if (updatedMovie) {
+    return res.status(OK).json({ movie: updatedMovie });
+  }
+  res.status(NOT_FOUND).json({ message: 'Movie not found' });
+});
 
 module.exports = app;
