@@ -4,12 +4,15 @@ const {
   addMovie,
   getMovieById,
   updateMovie,
+  deleteMovie,
 } = require('./helpers/movies');
 
 const OK = 200;
 const CREATED = 201;
 const NOT_FOUND = 404;
 const INTERNAL_SERVER_ERROR = 500;
+
+const NOT_FOUND_MESSAGE = 'Movie not found';
 
 const app = express();
 
@@ -31,7 +34,7 @@ app.get('/movies/:id', async (req, res) => {
     if (requestedMovie) {
       return res.status(OK).json({ movie: requestedMovie });
     }
-    res.status(NOT_FOUND).json({ message: 'Movie not found' });
+    res.status(NOT_FOUND).json({ message: NOT_FOUND_MESSAGE });
   } catch (error) {
     res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
   }
@@ -48,13 +51,30 @@ app.post('/movies', async (req, res) => {
 });
 
 app.put('/movies/:id', async (req, res) => {
-  const targetId = Number(req.params.id);
-  const { movie, price } = req.body;
-  const updatedMovie = await updateMovie(targetId, movie, price);
-  if (updatedMovie) {
-    return res.status(OK).json({ movie: updatedMovie });
+  try {
+    const targetId = Number(req.params.id);
+    const { movie, price } = req.body;
+    const updatedMovie = await updateMovie(targetId, movie, price);
+    if (updatedMovie) {
+      return res.status(OK).json({ movie: updatedMovie });
+    }
+    res.status(NOT_FOUND).json({ message: NOT_FOUND_MESSAGE });
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
   }
-  res.status(NOT_FOUND).json({ message: 'Movie not found' });
+});
+
+app.delete('/movies/:id', async (req, res) => {
+  try {
+    const targetId = Number(req.params.id);
+    const deletedMovie = await deleteMovie(targetId);
+    if (deletedMovie) {
+      return res.status(OK).json({ movie: deletedMovie });
+    }
+    res.status(NOT_FOUND).json({ message: NOT_FOUND_MESSAGE });
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
+  }
 });
 
 module.exports = app;

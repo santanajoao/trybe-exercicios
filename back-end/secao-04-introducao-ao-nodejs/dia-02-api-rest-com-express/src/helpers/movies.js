@@ -2,7 +2,11 @@ const path = require('path');
 const fs = require('fs').promises;
 
 const MOVIES_JSON_PATH = path.resolve(__dirname, '../data/movies.json');
-const JSON_IDENT = 2;
+
+function toJSON(data) {
+  const JSON_IDENT = 2;
+  return JSON.stringify(data, null, JSON_IDENT);
+}
 
 async function getMovies() {
   const response = await fs.readFile(MOVIES_JSON_PATH);
@@ -18,10 +22,7 @@ async function addMovie(name, price) {
   const newMovie = { id: newId, movie: name, price };
   movies.push(newMovie);
 
-  await fs.writeFile(
-    MOVIES_JSON_PATH,
-    JSON.stringify(movies, null, JSON_IDENT),
-  );
+  await fs.writeFile(MOVIES_JSON_PATH, toJSON(movies));
 
   return newMovie;
 }
@@ -39,9 +40,32 @@ async function updateMovie(id, newName, newPrice) {
     targetMovie.movie = newName;
     targetMovie.price = newPrice;
   }
-  fs.writeFile(MOVIES_JSON_PATH, JSON.stringify(movieList, null, 2));
+  fs.writeFile(MOVIES_JSON_PATH, toJSON(movieList));
 
   return targetMovie;
 }
 
-module.exports = { getMovies, getMovieById, addMovie, updateMovie };
+async function deleteMovie(id) {
+  const movieList = await getMovies();
+
+  let deletedMovie;
+  const newList = movieList.reduce((result, movie) => {
+    if (movie.id === id) {
+      deletedMovie = { ...movie };
+      return result;
+    }
+    return [...result, movie];
+  }, []);
+
+  fs.writeFile(MOVIES_JSON_PATH, toJSON(newList));
+
+  return deletedMovie;
+}
+
+module.exports = {
+  getMovies,
+  getMovieById,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+};
