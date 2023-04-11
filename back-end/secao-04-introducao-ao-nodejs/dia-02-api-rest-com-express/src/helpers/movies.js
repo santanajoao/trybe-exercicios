@@ -62,10 +62,21 @@ async function deleteMovie(id) {
   return deletedMovie;
 }
 
+async function searchMovie(query) {
+  const lowerCaseQuery = query.toLowerCase();
+  const movieList = await getMovies();
+  const searchResult = movieList.filter(({ movie: movieName }) => {
+    const lowerCaseMovieName = movieName.toLowerCase();
+    return lowerCaseMovieName.includes(lowerCaseQuery);
+  });
+  return searchResult;
+}
+
 module.exports = {
   getMovies,
   getMovieById,
   addMovie,
   updateMovie,
   deleteMovie,
+  searchMovie,
 };

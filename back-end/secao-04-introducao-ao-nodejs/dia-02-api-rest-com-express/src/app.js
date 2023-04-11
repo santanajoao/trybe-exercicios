@@ -5,6 +5,7 @@ const {
   getMovieById,
   updateMovie,
   deleteMovie,
+  searchMovie,
 } = require('./helpers/movies');
 
 const OK = 200;
@@ -25,6 +26,12 @@ app.get('/movies', async (_, res) => {
   } catch (error) {
     res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
   }
+});
+
+app.get('/movies/search', async (req, res) => {
+  const query = req.query.q;
+  const searchResult = await searchMovie(query);
+  res.status(OK).json({ movies: searchResult });
 });
 
 app.get('/movies/:id', async (req, res) => {
