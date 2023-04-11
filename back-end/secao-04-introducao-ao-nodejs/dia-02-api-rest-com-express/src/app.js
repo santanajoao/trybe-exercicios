@@ -29,9 +29,13 @@ app.get('/movies', async (_, res) => {
 });
 
 app.get('/movies/search', async (req, res) => {
-  const query = req.query.q;
-  const searchResult = await searchMovie(query);
-  res.status(OK).json({ movies: searchResult });
+  try {
+    const query = req.query.q;
+    const searchResult = await searchMovie(query);
+    res.status(OK).json({ movies: searchResult });
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
+  }
 });
 
 app.get('/movies/:id', async (req, res) => {
