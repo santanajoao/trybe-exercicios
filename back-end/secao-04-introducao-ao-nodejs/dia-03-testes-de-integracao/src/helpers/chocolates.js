@@ -14,4 +14,12 @@ async function getChocolates() {
   return chocolates;
 }
 
-module.exports = { getChocolates };
+async function getChocolateById(id) {
+  const chocolates = await getChocolates();
+  const requestedChocolate = chocolates.find(
+    (chocolate) => chocolate.id === id,
+  );
+  return requestedChocolate;
+}
+
+module.exports = { getChocolates, getChocolateById };
