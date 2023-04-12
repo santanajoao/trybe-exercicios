@@ -10,6 +10,7 @@ const mocks = require('../mocks/chocolates');
 
 const { expect } = chai;
 const OK = 200;
+const NOT_FOUND = 404;
 
 describe('chocolates API', function () {
   beforeEach(() => {
@@ -35,6 +36,13 @@ describe('chocolates API', function () {
     expect(fs.promises.readFile.called).to.be.equal(true);
     expect(response.status).to.be.equal(OK);
     expect(response.body.chocolate).to.be.deep.equal(chocolateMock);
+  });
+
+  it('GET /chocolates/:id responds with an error message when a invalid id is received', async function () {
+    const response = await chai.request(app).get('/chocolates/938949192398');
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(response.status).to.be.equal(NOT_FOUND);
+    expect(response.body.message).to.be.equal('Chocolate not found');
   });
 
   it('GET /chocolates/brand/:brandId gives an array of chocolates from a especific brand', async function () {
