@@ -24,6 +24,17 @@ app.get('/chocolates', async (_, res) => {
   }
 });
 
+app.get('/chocolates/total', async (_, res) => {
+  try {
+    const chocolates = await getChocolates();
+    res.status(OK).json({ totalChocolates: chocolates.length });
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({
+      message: `${INTERNAL_ERROR_MESSAGE}: ${error.message}`,
+    });
+  }
+});
+
 app.get('/chocolates/:id', async (req, res) => {
   try {
     const requestedId = Number(req.params.id);
