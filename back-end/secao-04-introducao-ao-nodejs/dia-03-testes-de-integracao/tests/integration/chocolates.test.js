@@ -26,6 +26,16 @@ describe('chocolates API', function () {
     expect(response.body.chocolates).to.be.deep.equal(mocks.chocolates);
   });
 
+  it('GET /chocolates/total gives the number of chocolates registered', async function () {
+    const response = await chai.request(app).get('/chocolates/total');
+
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(response.status).to.be.equal(OK);
+    expect(response.body.totalChocolates).to.be.deep.equal(
+      mocks.chocolates.length,
+    );
+  });
+
   it('GET /chocolates/:id gives a object with chocolate infos', async function () {
     const chocolateMock = mocks.chocolates[1];
 
