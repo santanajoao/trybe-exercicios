@@ -10,7 +10,9 @@ app.get('/chocolates', async (_, res) => {
     const chocolates = await getChocolates();
     res.status(OK).json({ chocolates });
   } catch (error) {
-    res.status(INTERNAL_SERVER_ERROR).json({ message: error.message });
+    res.status(INTERNAL_SERVER_ERROR).json({
+      message: `Sorry! Some internal error ocurred: ${error.message}`,
+    });
   }
 });
 
