@@ -11,10 +11,10 @@ const mocks = require('../mocks/chocolates');
 const { expect } = chai;
 const OK = 200;
 
-describe('chocolates API', () => {
+describe('chocolates API', function () {
   afterEach(sinon.restore);
 
-  it('GET /chocolates gives an array with all chocolates', async () => {
+  it('GET /chocolates gives an array with all chocolates', async function () {
     sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mocks.all));
 
     const response = await chai.request(app).get('/chocolates');
@@ -23,7 +23,7 @@ describe('chocolates API', () => {
     expect(response.body.chocolates).to.be.deep.equal(mocks.chocolates);
   });
 
-  it('GET /chocolates/:id gives a object with chocolate infos', async () => {
+  it('GET /chocolates/:id gives a object with chocolate infos', async function () {
     sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mocks.all));
 
     const chocolateMock = mocks.chocolates[1];
