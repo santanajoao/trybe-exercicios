@@ -49,6 +49,6 @@ describe('chocolates API', function () {
 
     expect(fs.promises.readFile.called).to.be.equal(true);
     expect(response.status).to.be.equal(OK);
-    expect(response.body.chocolates).to.be.deep.equal([{}]);
+    expect(response.body.chocolates).to.be.deep.equal(expectedResult);
   });
 });
