@@ -22,4 +22,12 @@ async function getChocolateById(id) {
   return requestedChocolate;
 }
 
-module.exports = { getChocolates, getChocolateById };
+async function getChocolatesByBrandId(id) {
+  const chocolates = await getChocolates();
+  const brandChocolates = chocolates.filter(
+    (chocolate) => chocolate.brandId === id,
+  );
+  return brandChocolates;
+}
+
+module.exports = { getChocolates, getChocolateById, getChocolatesByBrandId };

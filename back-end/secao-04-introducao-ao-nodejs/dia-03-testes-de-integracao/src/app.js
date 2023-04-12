@@ -1,5 +1,9 @@
 const express = require('express');
-const { getChocolates, getChocolateById } = require('./helpers/chocolates');
+const {
+  getChocolates,
+  getChocolateById,
+  getChocolatesByBrandId,
+} = require('./helpers/chocolates');
 
 const app = express();
 
@@ -29,6 +33,18 @@ app.get('/chocolates/:id', async (req, res) => {
     } else {
       res.status(NOT_FOUND).json({ message: 'Chocolate not found' });
     }
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({
+      message: `${INTERNAL_ERROR_MESSAGE}: ${error.message}`,
+    });
+  }
+});
+
+app.get('/chocolates/brand/:brandId', async (req, res) => {
+  try {
+    const brandId = Number(req.params.brandId);
+    const brandChocolates = await getChocolatesByBrandId(brandId);
+    res.status(OK).json({ chocolates: brandChocolates });
   } catch (error) {
     res.status(INTERNAL_SERVER_ERROR).json({
       message: `${INTERNAL_ERROR_MESSAGE}: ${error.message}`,
