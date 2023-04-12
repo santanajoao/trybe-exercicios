@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const sinon = require('sinon');
