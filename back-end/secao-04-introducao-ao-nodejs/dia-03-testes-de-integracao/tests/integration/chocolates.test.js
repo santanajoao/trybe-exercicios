@@ -12,11 +12,13 @@ const { expect } = chai;
 const OK = 200;
 
 describe('chocolates API', function () {
+  beforeEach(() => {
+    sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mocks.all));
+  });
+
   afterEach(sinon.restore);
 
   it('GET /chocolates gives an array with all chocolates', async function () {
-    sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mocks.all));
-
     const response = await chai.request(app).get('/chocolates');
     expect(fs.promises.readFile.called).to.be.equal(true);
     expect(response.status).to.be.equal(OK);
@@ -24,8 +26,6 @@ describe('chocolates API', function () {
   });
 
   it('GET /chocolates/:id gives a object with chocolate infos', async function () {
-    sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mocks.all));
-
     const chocolateMock = mocks.chocolates[1];
 
     const response = await chai
@@ -35,5 +35,20 @@ describe('chocolates API', function () {
     expect(fs.promises.readFile.called).to.be.equal(true);
     expect(response.status).to.be.equal(OK);
     expect(response.body.chocolate).to.be.deep.equal(chocolateMock);
+  });
+
+  it('GET /chocolates/brand/:brandId gives an array of chocolates from a especific brand', async function () {
+    const brandId = 1;
+    const expectedResult = mocks.chocolates.filter(
+      (chocolate) => chocolate.brandId === brandId,
+    );
+
+    const response = await chai
+      .request(app)
+      .get(`/chocolates/brand/${brandId}`);
+
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(response.status).to.be.equal(OK);
+    expect(response.body.chocolates).to.be.deep.equal([{}]);
   });
 });
