@@ -8,7 +8,7 @@ const { expect } = chai;
 const OK = 200;
 
 describe('chocolates API', () => {
-  it('GET /chocolates', async () => {
+  it('GET /chocolates gives a array with all chocolates', async () => {
     const response = await chai.request(app).get('/chocolates');
     expect(response.status).to.be.equal(OK);
   });
