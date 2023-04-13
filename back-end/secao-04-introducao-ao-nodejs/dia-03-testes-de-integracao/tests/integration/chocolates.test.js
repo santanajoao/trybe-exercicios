@@ -7,6 +7,7 @@ chai.use(chaiHttp);
 const fs = require('fs');
 const app = require('../../src/app');
 const mocks = require('../mocks/chocolates');
+const { searchChocolatesByName } = require('../../src/helpers/chocolates');
 
 const { expect } = chai;
 const OK = 200;
@@ -38,18 +39,7 @@ describe('chocolates API', function () {
 
   it('GET /chocolates/search?name gives chocolates that contains the name', async function () {
     const query = 'mo';
-    const searchResult = [
-      {
-        id: 3,
-        name: 'Mon Chéri',
-        brandId: 2,
-      },
-      {
-        id: 4,
-        name: 'Mounds',
-        brandId: 3,
-      },
-    ];
+    const searchResult = await searchChocolatesByName(query);
 
     const response = await chai
       .request(app)

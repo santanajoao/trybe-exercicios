@@ -30,4 +30,18 @@ async function getChocolatesByBrandId(id) {
   return brandChocolates;
 }
 
-module.exports = { getChocolates, getChocolateById, getChocolatesByBrandId };
+async function searchChocolatesByName(name = '') {
+  const lowerCaseQuerie = name.toLowerCase();
+  const chocolates = await getChocolates();
+  const searchResult = chocolates.filter((chocolate) =>
+    chocolate.name.toLowerCase().includes(lowerCaseQuerie),
+  );
+  return searchResult;
+}
+
+module.exports = {
+  getChocolates,
+  getChocolateById,
+  getChocolatesByBrandId,
+  searchChocolatesByName,
+};

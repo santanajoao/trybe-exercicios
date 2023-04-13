@@ -3,6 +3,7 @@ const {
   getChocolates,
   getChocolateById,
   getChocolatesByBrandId,
+  searchChocolatesByName,
 } = require('./helpers/chocolates');
 
 const app = express();
@@ -28,6 +29,22 @@ app.get('/chocolates/total', async (_, res) => {
   try {
     const chocolates = await getChocolates();
     res.status(OK).json({ totalChocolates: chocolates.length });
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({
+      message: `${INTERNAL_ERROR_MESSAGE}: ${error.message}`,
+    });
+  }
+});
+
+app.get('/chocolates/search', async (req, res) => {
+  try {
+    const { name } = req.query;
+    const result = await searchChocolatesByName(name);
+    if (result.length > 0) {
+      res.status(OK).json({ chocolates: result });
+    } else {
+      res.status(NOT_FOUND).json({ chocolates: [] });
+    }
   } catch (error) {
     res.status(INTERNAL_SERVER_ERROR).json({
       message: `${INTERNAL_ERROR_MESSAGE}: ${error.message}`,
