@@ -36,6 +36,40 @@ describe('chocolates API', function () {
     );
   });
 
+  it('GET /chocolates/search?name gives chocolates that contains the name', async function () {
+    const query = 'mo';
+    const searchResult = [
+      {
+        id: 3,
+        name: 'Mon Chéri',
+        brandId: 2,
+      },
+      {
+        id: 4,
+        name: 'Mounds',
+        brandId: 3,
+      },
+    ];
+
+    const response = await chai
+      .request(app)
+      .get(`/chocolates/search?name=${query}`);
+
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(response.status).to.be.equal(OK);
+    expect(response.body.chocolates).to.be.deep.equal(searchResult);
+  });
+
+  it('GET /chocolates/search?name responds with 404 if no matches found', async function () {
+    const response = await chai
+      .request(app)
+      .get(`/chocolates/search?name=NodeExpressChaiSinon`);
+
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(response.status).to.be.equal(NOT_FOUND);
+    expect(response.body.chocolates).to.be.deep.equal([]);
+  });
+
   it('GET /chocolates/:id gives a object with chocolate infos', async function () {
     const chocolateMock = mocks.chocolates[1];
 
