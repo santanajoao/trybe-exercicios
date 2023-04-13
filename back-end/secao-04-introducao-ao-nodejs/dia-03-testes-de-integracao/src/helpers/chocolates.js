@@ -40,7 +40,8 @@ async function searchChocolatesByName(name = '') {
 }
 
 async function writeChocolatesData(data) {
-  fs.writeFile(DATA_PATH, JSON.stringify(data));
+  const IDENT = 2;
+  fs.writeFile(DATA_PATH, JSON.stringify(data, null, IDENT));
 }
 
 async function updateChocolate(id, name, brandId) {
