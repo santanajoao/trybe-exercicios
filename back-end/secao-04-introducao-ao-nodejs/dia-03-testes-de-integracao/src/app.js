@@ -4,9 +4,11 @@ const {
   getChocolateById,
   getChocolatesByBrandId,
   searchChocolatesByName,
+  updateChocolate,
 } = require('./helpers/chocolates');
 
 const app = express();
+app.use(express.json());
 
 const OK = 200;
 const NOT_FOUND = 404;
@@ -58,6 +60,24 @@ app.get('/chocolates/:id', async (req, res) => {
     const requestedChocolate = await getChocolateById(requestedId);
     if (requestedChocolate) {
       res.status(OK).json({ chocolate: requestedChocolate });
+    } else {
+      res.status(NOT_FOUND).json({ message: 'Chocolate not found' });
+    }
+  } catch (error) {
+    res.status(INTERNAL_SERVER_ERROR).json({
+      message: `${INTERNAL_ERROR_MESSAGE}: ${error.message}`,
+    });
+  }
+});
+
+app.put('/chocolates/:id', async (req, res) => {
+  try {
+    const requestedId = Number(req.params.id);
+    const { name, brandId } = req.body;
+
+    const updatedChocolate = await updateChocolate(requestedId, name, brandId);
+    if (updatedChocolate) {
+      res.status(OK).json(updatedChocolate);
     } else {
       res.status(NOT_FOUND).json({ message: 'Chocolate not found' });
     }

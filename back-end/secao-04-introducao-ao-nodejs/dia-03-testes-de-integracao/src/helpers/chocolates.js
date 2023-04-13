@@ -39,9 +39,29 @@ async function searchChocolatesByName(name = '') {
   return searchResult;
 }
 
+async function writeChocolatesData(data) {
+  fs.writeFile(DATA_PATH, JSON.stringify(data));
+}
+
+async function updateChocolate(id, name, brandId) {
+  const data = await readChocolatesData();
+  const index = data.chocolates.findIndex((chocolate) => chocolate.id === id);
+  if (index === -1) {
+    return null;
+  }
+  const chocolate = data.chocolates[index];
+  chocolate.name = name;
+  chocolate.brandId = brandId;
+
+  await writeChocolatesData(data);
+
+  return chocolate;
+}
+
 module.exports = {
   getChocolates,
   getChocolateById,
   getChocolatesByBrandId,
   searchChocolatesByName,
+  updateChocolate,
 };
