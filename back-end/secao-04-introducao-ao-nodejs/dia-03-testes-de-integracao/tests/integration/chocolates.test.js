@@ -79,6 +79,40 @@ describe('chocolates API', function () {
     expect(response.body.message).to.be.equal('Chocolate not found');
   });
 
+  const resultMock = {
+    id: 5,
+    name: 'La Crem',
+    brandId: 6,
+  };
+
+  it('PUT /chocolates/:id updates an chocolate data', async function () {
+    sinon.stub(fs.promises, 'writeFile');
+
+    const response = await chai.request(app).put('/chocolates/3').send({
+      name: resultMock.name,
+      brandId: resultMock.brandId,
+    });
+
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(fs.promises.writeFile.called).to.be.equal(true);
+    expect(response.status).to.be.equal(OK);
+    expect(response.body).to.be.deep.equal(resultMock);
+  });
+
+  it('PUT /chocolates/:id responds with not found message when id not found', async function () {
+    sinon.stub(fs.promises, 'writeFile');
+
+    const response = await chai.request(app).put('/chocolates/92831237').send({
+      name: resultMock.name,
+      brandId: resultMock.brandId,
+    });
+
+    expect(fs.promises.readFile.called).to.be.equal(true);
+    expect(fs.promises.writeFile.called).to.be.equal(false);
+    expect(response.status).to.be.equal(NOT_FOUND);
+    expect(response.body.message).to.be.deep.equal('Chocolate not found');
+  });
+
   it('GET /chocolates/brand/:brandId gives an array of chocolates from a especific brand', async function () {
     const brandId = 1;
     const expectedResult = mocks.chocolates.filter(
