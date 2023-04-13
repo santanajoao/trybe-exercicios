@@ -17,7 +17,7 @@ app.use((err, _req, res, _next) => {
   if (status === BAD_REQUEST) {
     console.error(message);
     return res.status(BAD_REQUEST).json({
-      message: message`Sorry! Some internal error ocurred: ${message}`,
+      message: `Sorry! Some internal error ocurred: ${message}`,
     });
   }
   res.status(status).json({ message });
