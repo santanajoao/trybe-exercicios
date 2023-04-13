@@ -4,13 +4,13 @@ require('express-async-errors');
 const activitiesRouter = require('./routes/activitiesRouter');
 
 const app = express();
-const BAD_REQUEST = 500;
 
 app.use(helmet());
 app.use(express.json());
 
 app.use('/activities', activitiesRouter);
 
+const BAD_REQUEST = 500;
 app.use((err, _req, res, _next) => {
   const { status = BAD_REQUEST, message } = err;
 

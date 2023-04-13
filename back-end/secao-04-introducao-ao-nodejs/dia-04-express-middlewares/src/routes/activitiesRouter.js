@@ -1,11 +1,12 @@
 const express = require('express');
-const validateName = require('../middlewares/activities/validateName');
+const validateName = require('../middlewares/validateName');
+const validatePrice = require('../middlewares/validatePrice');
 
 const router = express.Router();
 
 const CREATED = 201;
 
-router.post('/', validateName, (_, res) => {
+router.post('/', validateName, validatePrice, (_, res) => {
   res.status(CREATED).json({ message: 'Atividade cadastrada com sucesso' });
 });
 
