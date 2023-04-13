@@ -8,14 +8,14 @@
     "dev": "nodemon src/server.js",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "test": "mocha tests/**/*.test.js --exit"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "4.17.1",
-    "express-async-errors": "3.1.1"
+    "express-async-errors": "3.1.1",
+    "helmet": "6.0.1"
   },
   "devDependencies": {
     "chai": "4.3.4",
