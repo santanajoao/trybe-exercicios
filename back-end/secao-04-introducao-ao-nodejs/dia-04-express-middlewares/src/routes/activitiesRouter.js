@@ -1,10 +1,10 @@
 const express = require('express');
-const validateName = require('../middlewares/validateName');
-const validatePrice = require('../middlewares/validatePrice');
-const validateDescription = require('../middlewares/validateDescription');
-const validateCreatedAt = require('../middlewares/validateCreatedAt');
-const validateRating = require('../middlewares/validateRating');
-const validateDifficulty = require('../middlewares/validateDifficulty');
+const validateName = require('../middlewares/activitiesRouter/validateName');
+const validatePrice = require('../middlewares/activitiesRouter/validatePrice');
+const validateDescription = require('../middlewares/activitiesRouter/validateDescription');
+const validateCreatedAt = require('../middlewares/activitiesRouter/validateCreatedAt');
+const validateRating = require('../middlewares/activitiesRouter/validateRating');
+const validateDifficulty = require('../middlewares/activitiesRouter/validateDifficulty');
 
 const router = express.Router();
 

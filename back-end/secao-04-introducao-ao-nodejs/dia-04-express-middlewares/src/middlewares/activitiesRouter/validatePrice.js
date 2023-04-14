@@ -1,4 +1,4 @@
-const isNullish = require('../utils/isNullish');
+const isNullish = require('../../utils/isNullish');
 
 const BAD_REQUEST = 400;
 

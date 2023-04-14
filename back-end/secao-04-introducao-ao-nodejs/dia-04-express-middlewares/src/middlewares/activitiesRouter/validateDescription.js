@@ -1,4 +1,4 @@
-const isNullish = require('../utils/isNullish');
+const isNullish = require('../../utils/isNullish');
 
 function validateDescription(req, _res, next) {
   const { description } = req.body;

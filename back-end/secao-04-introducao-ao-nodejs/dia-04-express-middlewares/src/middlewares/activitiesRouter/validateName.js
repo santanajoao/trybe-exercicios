@@ -1,4 +1,4 @@
-const isNullish = require('../utils/isNullish');
+const isNullish = require('../../utils/isNullish');
 
 function validateName(req, _res, next) {
   const BAD_REQUEST = 400;
