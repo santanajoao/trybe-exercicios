@@ -11,6 +11,8 @@ function validateFields(req, _res, next) {
       });
     }
   }
+  
+  next();
 }
 
 module.exports = validateFields;

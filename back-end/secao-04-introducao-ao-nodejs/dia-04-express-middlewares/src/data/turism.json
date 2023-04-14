@@ -1,4 +1,22 @@
 {
-  "activities": [],
-  "users": []
+  "activities": [
+    {
+      "name": "Trekking",
+      "price": 0,
+      "description": {
+        "rating": 5,
+        "difficulty": "Fácil",
+        "createdAt": "10/08/2022"
+      }
+    }
+  ],
+  "users": [
+    {
+      "email": "joao@gmail.com",
+      "password": "password",
+      "firstName": "João",
+      "phone": "999999999",
+      "token": "a42a30bd2a9ee0e2"
+    }
+  ]
 }
