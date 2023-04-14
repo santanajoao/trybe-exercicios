@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 require('express-async-errors');
 const activitiesRouter = require('./routes/activitiesRouter');
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
@@ -10,17 +11,6 @@ app.use(express.json());
 
 app.use('/activities', activitiesRouter);
 
-const BAD_REQUEST = 500;
-app.use((err, _req, res, _next) => {
-  const { status = BAD_REQUEST, message } = err;
-
-  if (status === BAD_REQUEST) {
-    console.error(message);
-    return res.status(BAD_REQUEST).json({
-      message: `Sorry! Some internal error ocurred: ${message}`,
-    });
-  }
-  res.status(status).json({ message });
-});
+app.use(errorHandler);
 
 module.exports = app;
