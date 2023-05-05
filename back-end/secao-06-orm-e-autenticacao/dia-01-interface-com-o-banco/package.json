@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
+    "start": "env $(cat .env) node src/server.js",
+    "dev": "env $(cat .env) nodemon src/server.js",
     "sequelize:create": "env $(cat .env) npx sequelize db:create",
     "mysql:start": "docker container run --name mysql -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql:8.0.29",
     "mysql:stop": "docker container rm -f mysql",
