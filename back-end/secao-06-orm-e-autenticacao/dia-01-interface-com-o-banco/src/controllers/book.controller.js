@@ -6,6 +6,7 @@ const handleGetAllBooks = async (_req, res) => {
   if (type) {
     return res.status(mapErrorToStatus(type)).json({ message });
   }
+  
   res.status(200).json(message);
 };
 
