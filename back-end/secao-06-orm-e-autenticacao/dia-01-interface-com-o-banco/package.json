@@ -5,13 +5,21 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "sequelize:create": "env $(cat .env) npx sequelize db:create",
+    "mysql:start": "docker container run --name mysql -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql:8.0.29",
+    "mysql:stop": "docker container rm -f mysql"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "4.18.2",
-    "nodemon": "2.0.22"
+    "mysql2": "3.2.4",
+    "sequelize": "6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.22",
+    "sequelize-cli": "6.6.0"
   }
 }
