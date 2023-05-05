@@ -17,7 +17,19 @@ const findBookById = async (bookId) => {
   return { type: null, message: book };
 };
 
+const addBook = async ({ title, author, pageQuantity }) => {
+  const error = validations.validatePageQuantity(pageQuantity);
+  if (error.type) return error;
+
+  const createdBook = await Book.create({
+    title, author, pageQuantity,
+  });
+  
+  return { type: null, message: createdBook };
+};
+
 module.exports = {
   findAllBooks,
   findBookById,
+  addBook,
 };

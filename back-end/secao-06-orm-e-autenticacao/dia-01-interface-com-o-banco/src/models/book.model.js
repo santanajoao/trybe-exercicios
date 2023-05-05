@@ -12,10 +12,6 @@ const BookModel = (sequelize, DataTypes) => {
     updatedAt: DataTypes.DATE,
   });
 
-  (async () => {
-    await sequelize.sync({ force: true });
-  })();
-
   return Book;
 };
 
