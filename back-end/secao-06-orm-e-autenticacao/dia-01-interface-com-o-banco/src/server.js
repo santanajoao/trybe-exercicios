@@ -1,5 +1,5 @@
 const app = require('./app');
 
-const PORT = 3001;
+const PORT = process.env.NODE_PORT;
 
 app.listen(PORT, () => console.log(`Express server on port ${PORT}`));
