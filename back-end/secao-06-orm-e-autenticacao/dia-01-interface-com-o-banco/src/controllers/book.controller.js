@@ -1,12 +1,12 @@
 const { BookService } = require('../services');
 const mapErrorToStatus = require('../utils/mapErrorToStatus');
 
-const handleGetAllBooks = async (_req, res) => {
-  const { type, message } = await BookService.findAllBooks();
+const handleGetBooks = async (req, res) => {
+  const { author } = req.query;
+  const { type, message } = await BookService.findBooks(author);
   if (type) {
     return res.status(mapErrorToStatus(type)).json({ message });
   }
-  
   res.status(200).json(message);
 };
 
@@ -56,7 +56,7 @@ const handleDeleteBook = async (req, res) => {
 };
 
 module.exports = {
-  handleGetAllBooks,
+  handleGetBooks,
   handleGetBookById,
   handlePostBook,
   handlePutBook,

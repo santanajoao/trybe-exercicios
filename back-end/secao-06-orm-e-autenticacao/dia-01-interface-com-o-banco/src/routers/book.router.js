@@ -4,7 +4,7 @@ const { BookMiddleware } = require('../middlewares');
 
 const router = express.Router();
 
-router.get('/', BookController.handleGetAllBooks);
+router.get('/', BookController.handleGetBooks);
 
 router.get('/:id', BookController.handleGetBookById);
 

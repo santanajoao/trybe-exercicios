@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { Book } = require('../models');
 const validations = require('./validations');
 
@@ -54,17 +55,35 @@ const deleteBook = async (bookId) => {
   if (error.type) return error;
 
   const deletedBooks = await Book.destroy({ where: { id: bookId } });
-  console.log({deletedBooks});
   if (deletedBooks === 0) {
     return { type: 'BOOK_NOT_FOUND', message: 'Book not found' };
   }
   return { type: null, message: '' };
 };
 
+const findBooksByAuthor = async (author) =>{ 
+  const books = await Book.findAll({
+    where: {
+      author: { [Op.eq]: author },
+    },
+  });
+  if (books.length === 0) {
+    return { type: 'AUTHOR_NOT_FOUND', message: 'Author not found' };
+  }
+  return { type: null, message: books };
+};
+
+const findBooks = async (author) => {
+  if (author) {
+    return findBooksByAuthor(author);
+  }
+  return findAllBooks();
+}
+
 module.exports = {
-  findAllBooks,
   findBookById,
   addBook,
   updateBook,
   deleteBook,
+  findBooks,
 };
