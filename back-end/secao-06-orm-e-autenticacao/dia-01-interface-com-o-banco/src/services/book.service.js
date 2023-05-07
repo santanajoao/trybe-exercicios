@@ -28,8 +28,29 @@ const addBook = async ({ title, author, pageQuantity }) => {
   return { type: null, message: createdBook };
 };
 
+const updateBook = async (bookId, { title, author, pageQuantity }) => {
+  const idError = validations.validateId(bookId);
+  if (idError.type) return idError;
+
+  const pageQuantityError = validations.validatePageQuantity(pageQuantity);
+  if (pageQuantityError.type) return pageQuantityError;
+
+  const book = await Book.findByPk(bookId);
+  if (!book) {
+    return { type: 'BOOK_NOT_FOUND', message: 'Book not found' };
+  }
+
+  await Book.update(
+    { title, author, pageQuantity }, { where: { id: bookId } },
+  );
+  const updatedBook = await Book.findByPk(bookId);
+
+  return { type: null, message: updatedBook };
+};
+
 module.exports = {
   findAllBooks,
   findBookById,
   addBook,
+  updateBook,
 };

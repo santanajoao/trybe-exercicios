@@ -1,6 +1,6 @@
 const isNullish = require('../utils/isNullish');
 
-const checkForNewBook = (req, res, next) => {
+const checkForBook = (req, res, next) => {
   const { title, author, pageQuantity } = req.body;
 
   if (isNullish(title)) {
@@ -19,5 +19,5 @@ const checkForNewBook = (req, res, next) => {
 };
 
 module.exports = {
-  checkForNewBook,
+  checkForBook,
 };

@@ -31,8 +31,23 @@ const handlePostBook = async (req, res) => {
   res.status(201).json(message);
 };
 
+const handlePutBook = async (req, res) => {
+  const id = Number(req.params.id);
+  const { title, author, pageQuantity } = req.body;
+
+  const { type, message } = await BookService.updateBook(id, {
+    title, author, pageQuantity,
+  });
+
+  if (type) {
+    return res.status(mapErrorToStatus(type)).json({ message });
+  }
+  res.status(200).json(message);
+};
+
 module.exports = {
   handleGetAllBooks,
   handleGetBookById,
   handlePostBook,
+  handlePutBook,
 };
