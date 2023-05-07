@@ -20,18 +20,20 @@ const findBookById = async (bookId) => {
   return { type: null, message: book };
 };
 
-const addBook = async ({ title, author, pageQuantity }) => {
+const addBook = async ({ title, author, pageQuantity, publisher }) => {
   const error = validations.validatePageQuantity(pageQuantity);
   if (error.type) return error;
 
   const createdBook = await Book.create({
-    title, author, pageQuantity,
+    title, author, pageQuantity, publisher,
   });
   
   return { type: null, message: createdBook };
 };
 
-const updateBook = async (bookId, { title, author, pageQuantity }) => {
+const updateBook = async (
+  bookId, { title, author, pageQuantity, publisher },
+) => {
   const idError = validations.validateId(bookId);
   if (idError.type) return idError;
   
