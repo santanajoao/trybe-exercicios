@@ -10,7 +10,9 @@
     "mysql:start": "docker container run --name mysql -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql:8.0.29",
     "mysql:stop": "docker container rm -f mysql",
     "migrate": "env $(cat .env) npx sequelize db:migrate",
-    "migrate:undo": "env $(cat .env) npx sequelize db:migrate:undo"
+    "migrate:undo": "env $(cat .env) npx sequelize db:migrate:undo",
+    "seed": "env $(cat .env) npx sequelize db:seed:all",
+    "seed:undo": "env $(cat .env) npx sequelize db:seed:undo:all"
   },
   "keywords": [],
   "author": "",
