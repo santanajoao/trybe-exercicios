@@ -12,4 +12,6 @@ router.post('/', BookMiddleware.checkForBook, BookController.handlePostBook);
 
 router.put('/:id', BookMiddleware.checkForBook, BookController.handlePutBook);
 
+router.delete('/:id', BookController.handleDeleteBook);
+
 module.exports = router;

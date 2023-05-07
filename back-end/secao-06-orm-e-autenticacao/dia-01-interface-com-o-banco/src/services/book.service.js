@@ -31,7 +31,7 @@ const addBook = async ({ title, author, pageQuantity }) => {
 const updateBook = async (bookId, { title, author, pageQuantity }) => {
   const idError = validations.validateId(bookId);
   if (idError.type) return idError;
-
+  
   const pageQuantityError = validations.validatePageQuantity(pageQuantity);
   if (pageQuantityError.type) return pageQuantityError;
 
@@ -41,11 +41,24 @@ const updateBook = async (bookId, { title, author, pageQuantity }) => {
   }
 
   await Book.update(
-    { title, author, pageQuantity }, { where: { id: bookId } },
+    { title, author, pageQuantity },
+    { where: { id: bookId } },
   );
   const updatedBook = await Book.findByPk(bookId);
 
   return { type: null, message: updatedBook };
+};
+
+const deleteBook = async (bookId) => {
+  const error = validations.validateId(bookId);
+  if (error.type) return error;
+
+  const deletedBooks = await Book.destroy({ where: { id: bookId } });
+  console.log({deletedBooks});
+  if (deletedBooks === 0) {
+    return { type: 'BOOK_NOT_FOUND', message: 'Book not found' };
+  }
+  return { type: null, message: '' };
 };
 
 module.exports = {
@@ -53,4 +66,5 @@ module.exports = {
   findBookById,
   addBook,
   updateBook,
+  deleteBook,
 };
