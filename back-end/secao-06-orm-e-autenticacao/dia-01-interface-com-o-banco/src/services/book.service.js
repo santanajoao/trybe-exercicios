@@ -3,7 +3,9 @@ const { Book } = require('../models');
 const validations = require('./validations');
 
 const findAllBooks = async () => {
-  const books = await Book.findAll();
+  const books = await Book.findAll({
+    order: ['title'],
+  });
   return { type: null, message: books };
 };
 
@@ -66,6 +68,7 @@ const findBooksByAuthor = async (author) =>{
     where: {
       author: { [Op.eq]: author },
     },
+    order: ['title'],
   });
   if (books.length === 0) {
     return { type: 'AUTHOR_NOT_FOUND', message: 'Author not found' };
