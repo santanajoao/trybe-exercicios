@@ -18,4 +18,12 @@ export default class Order {
     this.paymentMethod = paymentMethod;
     this.discount = discount;
   }
+
+  getTotalPrice(): number {
+    return this.items.reduce((total, item) => total + item.price, 0);
+  }
+
+  getTotalPriceWithDiscount(): number {
+    return this.getTotalPrice() * (1 - this.discount);
+  }
 }
