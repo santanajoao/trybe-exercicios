@@ -1,5 +1,5 @@
 export interface Employee {
-  registration: number;
+  registration: string;
   salary: number;
   admissionDate: Date;
   generateRegistration(): string;

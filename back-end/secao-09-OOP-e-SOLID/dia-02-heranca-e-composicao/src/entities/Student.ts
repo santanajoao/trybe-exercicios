@@ -1,3 +1,4 @@
+import ID from './ID';
 import Person from './Person';
 
 export default class Student extends Person {
@@ -53,9 +54,7 @@ export default class Student extends Person {
   }
 
   private generateEnrollment(): string {
-    const digitsNumber = 16;
-    const randomNumber = Math.floor(Math.random() * 10 ** digitsNumber);
-    return randomNumber.toString();
+    return ID.generateID();
   }
 }
 
