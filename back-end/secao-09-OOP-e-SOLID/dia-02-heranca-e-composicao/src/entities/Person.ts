@@ -25,7 +25,7 @@ export default class Person {
       throw new Error('The person cannot be more than 120 years old');
     }
   }
-
+  
   getAge() {
     const timeDifference = Date.now() - this.birthDate.getTime();
     const age = timeDifference / 3.154e10;
